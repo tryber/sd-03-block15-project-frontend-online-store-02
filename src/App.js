@@ -1,12 +1,15 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
-// import * as api from './services/api';
+import MainPage from './MainPage';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Front-end Online Store</h1>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={MainPage} />
+      </Switch>
+    </Router>
   );
 }
 
