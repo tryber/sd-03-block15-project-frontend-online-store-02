@@ -1,4 +1,5 @@
 import React from 'react';
+import CartButton from '../components/CartButton';
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -16,6 +17,7 @@ class MainPage extends React.Component {
     return (
       <div>
         <input value={this.state.search} onChange={this.onHandleChange} />
+        <CartButton />
         <p data-testid="home-initial-message">
           Digite algum termo de pesquisa ou escolha uma categoria.
         </p>
