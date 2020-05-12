@@ -2,15 +2,15 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 
-import CartButton from './components/CartButton';
+import MainPage from './MainPage';
 import CartPage from './pages/CartPage';
 
 function App() {
   return (
     <Router>
       <Switch>
+        <Route exact path="/" component={MainPage} />
         <Route path="/cart" component={CartPage} />
-        <Route exact path="/" component={CartButton} />
       </Switch>
     </Router>
   );
