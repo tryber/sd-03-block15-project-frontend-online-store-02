@@ -19,7 +19,6 @@ class MainPage extends React.Component {
         <p data-testid="home-initial-message">
           Digite algum termo de pesquisa ou escolha uma categoria.
         </p>
-        <p>TESTE</p>
       </div>
     );
   }
