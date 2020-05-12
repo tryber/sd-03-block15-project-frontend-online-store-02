@@ -1,6 +1,6 @@
 import React from 'react';
 
-class ProductsSearch extends React.Component {
+class MainPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = { search: '' };
@@ -24,4 +24,4 @@ class ProductsSearch extends React.Component {
   }
 }
 
-export default ProductsSearch;
+export default MainPage;
