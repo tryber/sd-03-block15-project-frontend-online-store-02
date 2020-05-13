@@ -2,11 +2,16 @@ import React from 'react';
 
 class CategoryList extends React.Component {
   render() {
-    const { categories } = this.props;
+    const { categories, handleChange } = this.props;
     return (
-      <ul>
-        {categories.map(({ id, name }) => <li key={id} data-testid="category">{name}</li>)}
-      </ul>
+      <div>
+        {categories.map(({ id, name }) => (
+          <div key={id}>
+            <input type="radio" key={id} data-testid="category" onChange={() => handleChange(id)} />
+            {name}
+          </div>
+        ))}
+      </div>
     );
   }
 }

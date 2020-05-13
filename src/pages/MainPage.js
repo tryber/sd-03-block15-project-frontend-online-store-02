@@ -7,8 +7,9 @@ import CategoryList from '../components/CategoryList';
 class MainPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { search: '', categories: [] };
+    this.state = { search: '', categories: [], categoryId: null };
     this.onHandleChange = this.onHandleChange.bind(this);
+    this.handleRadio = this.handleRadio.bind(this);
   }
 
   componentDidMount() {
@@ -21,12 +22,16 @@ class MainPage extends React.Component {
     this.setState({ search: value });
   }
 
+  handleRadio(categoryId) {
+    this.setState({ categoryId });
+  }
+
   render() {
     const { categories, search } = this.state;
     return (
       <div>
         <div>
-          <CategoryList categories={categories} />
+          <CategoryList categories={categories} handleChange={this.handleRadio} />
         </div>
         <input value={search} onChange={this.onHandleChange} />
         <CartButton />
