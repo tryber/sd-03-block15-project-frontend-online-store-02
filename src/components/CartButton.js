@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-//
+
 const CartButton = () => (
   <div>
     <Link to="/cart" data-testid="shopping-cart-button">

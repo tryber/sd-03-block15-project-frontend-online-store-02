@@ -1,8 +1,8 @@
 import React from 'react';
-import CartButton from '../components/CartButton';
-import CategoryList from '../components/CategoryList';
 
 import * as api from '../services/api';
+import CartButton from '../components/CartButton';
+import CategoryList from '../components/CategoryList';
 
 class MainPage extends React.Component {
   constructor(props) {
