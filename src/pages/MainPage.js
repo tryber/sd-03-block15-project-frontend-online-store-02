@@ -9,7 +9,7 @@ class MainPage extends React.Component {
     super(props);
     this.state = { search: '', categories: [], categoryId: null };
     this.onHandleChange = this.onHandleChange.bind(this);
-    this.handleRadio = this.handleRadio.bind(this);
+    this.onHandleRadio = this.onHandleRadio.bind(this);
   }
 
   componentDidMount() {
@@ -22,7 +22,7 @@ class MainPage extends React.Component {
     this.setState({ search: value });
   }
 
-  handleRadio(categoryId) {
+  onHandleRadio(categoryId) {
     this.setState({ categoryId });
   }
 
@@ -31,7 +31,7 @@ class MainPage extends React.Component {
     return (
       <div>
         <div>
-          <CategoryList categories={categories} handleChange={this.handleRadio} />
+          <CategoryList categories={categories} handleChange={this.onHandleRadio} />
         </div>
         <input value={search} onChange={this.onHandleChange} />
         <CartButton />
