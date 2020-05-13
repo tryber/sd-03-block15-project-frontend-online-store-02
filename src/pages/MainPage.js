@@ -1,11 +1,19 @@
 import React from 'react';
 import CartButton from '../components/CartButton';
+import CategoryList from '../components/CategoryList';
+
+import * as api from '../services/api';
 
 class MainPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { search: '' };
+    this.state = { search: '', categories: [] };
     this.onHandleChange = this.onHandleChange.bind(this);
+  }
+
+  componentDidMount() {
+    api.getCategories()
+      .then((categories) => this.setState({ categories }));
   }
 
   onHandleChange(event) {
@@ -14,9 +22,13 @@ class MainPage extends React.Component {
   }
 
   render() {
+    const { categories, search } = this.state;
     return (
       <div>
-        <input value={this.state.search} onChange={this.onHandleChange} />
+        <div>
+          <CategoryList categories={categories} />
+        </div>
+        <input value={search} onChange={this.onHandleChange} />
         <CartButton />
         <p data-testid="home-initial-message">
           Digite algum termo de pesquisa ou escolha uma categoria.
