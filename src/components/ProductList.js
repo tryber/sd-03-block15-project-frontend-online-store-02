@@ -6,24 +6,24 @@ import ProductCard from './ProductCard';
 class ProductList extends React.Component {
   constructor(props) {
     super(props);
-    const { categoryId, search } = this.props;
+    const { categoryId, searchInput } = this.props;
     this.state = {
       categoryId,
-      search,
+      searchInput,
       products: null,
     };
   }
 
   componentDidMount() {
-    const { categoryId, search } = this.state;
+    const { categoryId, searchInput } = this.state;
     api
-      .getProductsFromCategoryAndQuery(categoryId, search)
-      .then((products) => this.setState({ products }));
+      .getProductsFromCategoryAndQuery(categoryId, searchInput)
+      .then(({ results }) => this.setState({ products: results }));
   }
 
   render() {
     const { products } = this.state;
-    return (
+    if (products) return (
       <div>
         {products.map((product) => (
           <ProductCard product={product} />
