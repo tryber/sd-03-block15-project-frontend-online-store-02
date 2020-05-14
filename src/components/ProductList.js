@@ -21,7 +21,7 @@ class ProductList extends React.Component {
       <div>
         <Search updateState={this.setProductsState} categoryId={categoryId} />
         {products &&
-          products.map((product) => <ProductCard product={product} />)}
+          products.map((product) => <div key={product.id}><ProductCard product={product} /></div>)}
       </div>
     );
   }
