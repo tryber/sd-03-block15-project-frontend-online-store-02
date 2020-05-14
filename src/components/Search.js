@@ -14,6 +14,11 @@ class Search extends React.Component {
     this.onHandleChange = this.onHandleChange.bind(this);
   }
 
+  onHandleChange(event) {
+    const { value } = event.target;
+    this.setState({ searchInput: value });
+  }
+
   apiRequest() {
     const { categoryId } = this.props;
     const { searchInput } = this.state;
@@ -23,11 +28,6 @@ class Search extends React.Component {
         this.props.updateState(results);
         this.setState({ isLoading: false });
       });
-  }
-
-  onHandleChange(event) {
-    const { value } = event.target;
-    this.setState({ searchInput: value });
   }
 
   render() {

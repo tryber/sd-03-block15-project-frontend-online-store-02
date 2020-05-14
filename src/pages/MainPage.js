@@ -1,9 +1,9 @@
-import React from "react";
-import "../App.css";
+import React from 'react';
+import '../App.css';
 
-import * as api from "../services/api";
-import CategoryList from "../components/CategoryList";
-import ProductList from "../components/ProductList";
+import * as api from '../services/api';
+import CategoryList from '../components/CategoryList';
+import ProductList from '../components/ProductList';
 
 class MainPage extends React.Component {
   constructor(props) {
