@@ -8,7 +8,7 @@ import ProductList from '../components/ProductList';
 class MainPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { categoryId: null, categories: [], searchCategory: false };
+    this.state = { categoryId: null, categories: [] };
     this.onHandleRadio = this.onHandleRadio.bind(this);
   }
 
@@ -17,11 +17,11 @@ class MainPage extends React.Component {
   }
 
   onHandleRadio(categoryId) {
-    this.setState({ categoryId, searchCategory: true });
+    this.setState({ categoryId });
   }
 
   render() {
-    const { categoryId, categories, searchCategory } = this.state;
+    const { categoryId, categories } = this.state;
     return (
       <div>
         <div className="lado-esquerdo">
@@ -31,7 +31,7 @@ class MainPage extends React.Component {
           />
         </div>
         <div className="lado-direito">
-          <ProductList categoryId={categoryId} searchCategory={searchCategory} />
+          <ProductList categoryId={categoryId} />
         </div>
       </div>
     );

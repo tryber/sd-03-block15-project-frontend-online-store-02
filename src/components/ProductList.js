@@ -2,6 +2,7 @@ import React from 'react';
 
 import ProductCard from './ProductCard';
 import Search from './Search';
+import * as api from '../services/api';
 
 class ProductList extends React.Component {
   constructor(props) {
@@ -16,12 +17,16 @@ class ProductList extends React.Component {
 
   render() {
     const { products } = this.state;
-    const { categoryId, searchCategory } = this.props;
+    const { categoryId } = this.props;
     return (
       <div>
-        <Search updateState={this.setProductsState} categoryId={categoryId} searchCategory={searchCategory} />
+        <Search updateState={this.setProductsState} categoryId={categoryId} />
         {products &&
-          products.map((product) => <div key={product.id}><ProductCard product={product} /></div>)}
+          products.map((product) => (
+            <div key={product.id}>
+              <ProductCard product={product} />
+            </div>
+          ))}
       </div>
     );
   }
