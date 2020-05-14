@@ -38,11 +38,17 @@ class MainPage extends React.Component {
     return (
       <div>
         <div className="lado-esquerdo">
-          <CategoryList categories={categories} onHandleClick={this.onHandleClick} handleChange={this.onHandleRadio} />
+          <CategoryList
+            categories={categories}
+            onHandleClick={this.onHandleClick}
+            handleChange={this.onHandleRadio}
+          />
         </div>
         <span>
           <input data-testid="query-input" value={searchInput} onChange={this.onHandleChange} />
-          <button data-testid="query-button" type="button" onClick={this.onHandleClick}>Pesquisar</button>
+          <button data-testid="query-button" type="button" onClick={this.onHandleClick}>
+            Pesquisar
+          </button>
           <CartButton />
         </span>
         <div className="lado-direito">
