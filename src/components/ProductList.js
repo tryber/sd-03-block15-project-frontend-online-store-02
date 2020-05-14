@@ -1,41 +1,27 @@
 import React from 'react';
 
-import * as api from '../services/api';
 import ProductCard from './ProductCard';
+import Search from './Search';
 
 class ProductList extends React.Component {
   constructor(props) {
     super(props);
-    const { categoryId, searchInput } = this.props;
-    this.state = {
-      categoryId,
-      searchInput,
-      products: null,
-      error: false,
-    };
-    this.fetchData = this.fetchData.bind(this);
+    this.state = { products: null };
+    this.setProductsState = this.setProductsState.bind(this);
   }
 
-  componentDidMount() {
-    this.fetchData();
-  }
-
-  fetchData() {
-    const { categoryId, searchInput } = this.state;
-    api
-      .getProductsFromCategoryAndQuery(categoryId, searchInput)
-      .then(({ results }) => this.setState({ products: results }))
-      .catch(() => this.setState({ error: true }));
+  setProductsState(products) {
+    this.setState({ products });
   }
 
   render() {
-    const { products, error } = this.state;
-    if (error) return <p data-testid="product">Nenhum produto foi encontrado</p>;
+    const { products } = this.state;
+    const { categoryId } = this.props;
     return (
       <div>
-        {products && products.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
+        <Search updateState={this.setProductsState} categoryId={categoryId} />
+        {products &&
+          products.map((product) => <ProductCard product={product} />)}
       </div>
     );
   }
