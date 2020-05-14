@@ -8,7 +8,7 @@ class DetailsPage extends Component {
     return (
       <div>
         <h2 data-testid="product-detail-name">{title}</h2>
-        <DetailsPageButton product={this.props}/>
+        <DetailsPageButton />
       </div>
     );
   }
