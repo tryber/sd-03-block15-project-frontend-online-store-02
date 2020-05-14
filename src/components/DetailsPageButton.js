@@ -14,15 +14,16 @@ class DetailsPageButton extends Component {
   }
 
   onClickButtonMinus() {
-    if (this.quantidade >= 1) this.setState((state) => ({ quantidade: state.quantidade - 1 }));
-    else this.setState({ quantidade: this.quantidade })
+    const { quantidade } = this.state;
+    if (quantidade >= 1) this.setState((state) => ({ quantidade: state.quantidade - 1 }));
+    else this.setState({ quantidade: 0 })
   }
 
   render() {
     // const { title, thumbnail, price} = this.props.product;
     return (
       <div className="product-button" data-testid="product-detail-add-to-cart">
-        <label htmlFor="quantidade">Quantidade: {this.quantidade}</label>
+        <label htmlFor="quantidade">{this.state.quantidade}</label>
         <button onClick={this.onClickButtonPlus}>+</button>
         <button onClick={this.onClickButtonMinus}>-</button>
       </div>
