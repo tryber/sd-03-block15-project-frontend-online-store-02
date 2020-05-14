@@ -11,6 +11,7 @@ class ProductList extends React.Component {
       categoryId,
       searchInput,
       products: null,
+      error: false,
     };
   }
 
@@ -18,15 +19,17 @@ class ProductList extends React.Component {
     const { categoryId, searchInput } = this.state;
     api
       .getProductsFromCategoryAndQuery(categoryId, searchInput)
-      .then(({ results }) => this.setState({ products: results }));
+      .then(({ results }) => this.setState({ products: results }))
+      .catch(() => this.setState({ error: true }));
   }
 
   render() {
-    const { products } = this.state;
-    if (products) return (
+    const { products, error } = this.state;
+    if (error) return <p data-testid="product">Nenhum produto foi encontrado</p>;
+    return (
       <div>
-        {products.map((product) => (
-          <ProductCard product={product} />
+        {products && products.map((product) => (
+          <ProductCard key={product.id} product={product} />
         ))}
       </div>
     );
