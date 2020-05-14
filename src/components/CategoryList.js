@@ -2,7 +2,7 @@ import React from 'react';
 
 class CategoryList extends React.Component {
   render() {
-    const { categories, handleChange, onHandleClick } = this.props;
+    const { categories, onHandleChange } = this.props;
     return (
       <div>
         {categories.map(({ id, name }) => (
@@ -11,9 +11,7 @@ class CategoryList extends React.Component {
               name="category"
               type="radio"
               data-testid="category"
-              onChange={() => {
-                handleChange(id); onHandleClick();
-              }}
+              onChange={() => onHandleChange(id)}
             />
             {name}
           </div>
