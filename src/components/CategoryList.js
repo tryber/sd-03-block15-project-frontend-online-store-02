@@ -7,7 +7,7 @@ class CategoryList extends React.Component {
       <div>
         {categories.map(({ id, name }) => (
           <div key={id}>
-            <input type="radio" key={id} data-testid="category" onChange={() => handleChange(id)} />
+            <input name="category" type="radio" data-testid="category" onChange={() => handleChange(id)} />
             {name}
           </div>
         ))}
