@@ -1,3 +1,11 @@
 .App {
   text-align: center;
 }
+
+.lado-esquerdo {
+  float: left;
+}
+
+.lado-direito {
+  background-color: bisque;
+}

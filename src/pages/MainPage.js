@@ -1,15 +1,18 @@
 import React from 'react';
-import CartButton from '../components/CartButton';
-import CategoryList from '../components/CategoryList';
+import '../App.css';
 
 import * as api from '../services/api';
+import CartButton from '../components/CartButton';
+import CategoryList from '../components/CategoryList';
+import ProductList from '../components/ProductList';
 
 class MainPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { search: '', categories: [], categoryId: null };
+    this.state = { searchInput: '', categories: [], categoryId: null, searchRequest: false };
     this.onHandleChange = this.onHandleChange.bind(this);
-    this.handleRadio = this.handleRadio.bind(this);
+    this.onHandleRadio = this.onHandleRadio.bind(this);
+    this.onHandleClick = this.onHandleClick.bind(this);
   }
 
   componentDidMount() {
@@ -19,25 +22,41 @@ class MainPage extends React.Component {
 
   onHandleChange(event) {
     const { value } = event.target;
-    this.setState({ search: value });
+    this.setState({ searchInput: value });
   }
 
-  handleRadio(categoryId) {
+  onHandleRadio(categoryId) {
     this.setState({ categoryId });
   }
 
+  onHandleClick() {
+    this.setState({ searchRequest: true });
+  }
+
   render() {
-    const { categories, search } = this.state;
+    const { categories, categoryId, searchInput, searchRequest } = this.state;
     return (
       <div>
-        <div>
-          <CategoryList categories={categories} handleChange={this.handleRadio} />
+        <div className="lado-esquerdo">
+          <CategoryList
+            categories={categories}
+            onHandleClick={this.onHandleClick}
+            handleChange={this.onHandleRadio}
+          />
         </div>
-        <input value={search} onChange={this.onHandleChange} />
-        <CartButton />
-        <p data-testid="home-initial-message">
-          Digite algum termo de pesquisa ou escolha uma categoria.
-        </p>
+        <span>
+          <input data-testid="query-input" value={searchInput} onChange={this.onHandleChange} />
+          <button data-testid="query-button" type="button" onClick={this.onHandleClick}>
+            Pesquisar
+          </button>
+          <CartButton />
+        </span>
+        <div className="lado-direito">
+          <p data-testid="home-initial-message">
+            Digite algum termo de pesquisa ou escolha uma categoria.
+          </p>
+          {searchRequest && <ProductList categoryId={categoryId} searchInput={searchInput} />}
+        </div>
       </div>
     );
   }
