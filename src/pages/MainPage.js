@@ -38,7 +38,7 @@ class MainPage extends React.Component {
     return (
       <div>
         <div className="lado-esquerdo">
-          <CategoryList categories={categories} handleChange={this.onHandleRadio} />
+          <CategoryList categories={categories} onHandleClick={this.onHandleClick} handleChange={this.onHandleRadio} />
         </div>
         <span>
           <input data-testid="query-input" value={searchInput} onChange={this.onHandleChange} />
