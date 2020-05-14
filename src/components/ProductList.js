@@ -12,9 +12,14 @@ class ProductList extends React.Component {
       searchInput,
       products: null,
     };
+    this.fetchData = this.fetchData.bind(this);
   }
 
   componentDidMount() {
+    this.fetchData();
+  }
+
+  fetchData() {
     const { categoryId, searchInput } = this.state;
     api
       .getProductsFromCategoryAndQuery(categoryId, searchInput)
