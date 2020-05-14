@@ -16,10 +16,10 @@ class ProductList extends React.Component {
 
   render() {
     const { products } = this.state;
-    const { categoryId } = this.props;
+    const { categoryId, searchCategory } = this.props;
     return (
       <div>
-        <Search updateState={this.setProductsState} categoryId={categoryId} />
+        <Search updateState={this.setProductsState} categoryId={categoryId} searchCategory={searchCategory} />
         {products &&
           products.map((product) => <div key={product.id}><ProductCard product={product} /></div>)}
       </div>

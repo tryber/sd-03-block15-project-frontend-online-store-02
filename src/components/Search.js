@@ -7,7 +7,7 @@ class Search extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchInput: '',
+      searchInput: "",
       isLoading: true,
     };
     this.apiRequest = this.apiRequest.bind(this);
@@ -20,9 +20,17 @@ class Search extends React.Component {
   }
 
   apiRequest() {
-    const { categoryId } = this.props;
+    const { categoryId, searchCategory } = this.props;
     const { searchInput } = this.state;
-    api
+    if (searchCategory && categoryId === '') {
+      return api
+        .getProductsFromCategoryAndQuery(categoryId)
+        .then(({ results }) => {
+          this.props.updateState(results);
+          this.setState({ isLoading: false });
+        });
+    }
+    return api
       .getProductsFromCategoryAndQuery(categoryId, searchInput)
       .then(({ results }) => {
         this.props.updateState(results);
