@@ -22,7 +22,7 @@ class DetailsPageButton extends Component {
     // const { title, thumbnail, price} = this.props.product;
     return (
       <div className="product-button" data-testid="product-detail-add-to-cart">
-        <label htmlFor="quantidade">Quantidade: {this.quantidade}</label>
+        <label htmlFor="quantidade">{this.state.quantidade}</label>
         <button onClick={this.onClickButtonPlus}>+</button>
         <button onClick={this.onClickButtonMinus}>-</button>
       </div>
