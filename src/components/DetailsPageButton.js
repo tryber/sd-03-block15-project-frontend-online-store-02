@@ -14,7 +14,7 @@ class DetailsPageButton extends Component {
   }
 
   onClickButtonMinus() {
-    if (this.quant > 1) this.setState((state) => ({ quantidade: state.quantidade - 1 }));
+    if (this.quantidade >= 1) this.setState((state) => ({ quantidade: state.quantidade - 1 }));
     else this.setState({ quantidade: this.quantidade })
   }
 
