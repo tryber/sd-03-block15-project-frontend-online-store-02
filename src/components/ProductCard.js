@@ -28,7 +28,7 @@ class ProductCard extends React.Component {
   removeFromCart() {
     const { product } = this.props;
     const cartArr = JSON.parse(localStorage.getItem('cart'));
-    // if (!cartArr) return alert('O carrinho está vazio');
+    // if (!cartArr) alert('O carrinho está vazio');
     const itemWithUniqueQuantity = cartArr.find((
       item,
     ) => item.id === product.id && item.quantity === 1);
@@ -37,7 +37,8 @@ class ProductCard extends React.Component {
       cartArr.splice(indexOfUnique, 1);
       return localStorage.setItem('cart', JSON.stringify(cartArr));
     }
-    product.quantity -= 1;
+    const indexToSubtract = cartArr.indexOf(cartArr.find(itemCart => itemCart.id === product.id));
+    cartArr[indexToSubtract].quantity -= 1;
     return localStorage.setItem('cart', JSON.stringify(cartArr));
   }
 
