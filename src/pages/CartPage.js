@@ -8,7 +8,8 @@ class CartPage extends Component {
 
     return (
       <div>
-        {cartItems === null ? <p data-testid="shopping-cart-empty-message">Seu carrinho está vazio</p>
+        {cartItems === null
+          ? <p data-testid="shopping-cart-empty-message">Seu carrinho está vazio</p>
           : <CartList />}
       </div>
     );

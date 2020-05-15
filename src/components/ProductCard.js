@@ -38,7 +38,7 @@ class ProductCard extends React.Component {
     }
     const indexToSubtract = cartItems.indexOf(cartItems.find((item) => item.id === product.id));
     cartItems[indexToSubtract].quantity -= 1;
-    return localStorage.setItem('cartItems', JSON.stringify(cartItems);
+    return localStorage.setItem('cartItems', JSON.stringify(cartItems));
   }
 
   render() {
