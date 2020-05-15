@@ -1,7 +1,7 @@
 import React from 'react';
 
 import * as api from '../services/api';
-import CartButton from '../components/CartButton';
+import CartButton from './CartButton';
 
 class Search extends React.Component {
   constructor(props) {

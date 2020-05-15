@@ -25,14 +25,14 @@ class ProductList extends React.Component {
           hasResultsByCategoryId={!resultsByCategoryId}
         />
         {notFound && !resultsByCategoryId && <p>Nenhum produto foi encontrado</p>}
-        {(products &&
-          products.map((product) => (
+        {(products
+          && products.map((product) => (
             <div key={product.id}>
               <ProductCard product={product} />
             </div>
-          ))) ||
-          (resultsByCategoryId &&
-            resultsByCategoryId.map((product) => (
+          )))
+          || (resultsByCategoryId
+            && resultsByCategoryId.map((product) => (
               <div key={product.id}>
                 <ProductCard product={product} />
               </div>
