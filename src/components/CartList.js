@@ -21,7 +21,6 @@ class CartList extends Component {
       return acc;
     });
     this.setState({ products: countedProducts });
-    console.log(this.state.products);
   }
 
   render() {

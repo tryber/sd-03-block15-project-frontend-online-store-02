@@ -9,19 +9,35 @@ class ProductCard extends React.Component {
 
   addToCart() {
     const { product } = this.props;
-    const prevCart = JSON.parse(localStorage.getItem('cart'));
-    if (!prevCart) {
+    const cartArr = JSON.parse(localStorage.getItem('cart'));
+    if (cartArr === null) {
       product.quantity = 1;
       return localStorage.setItem('cart', JSON.stringify([{ ...product }]));
     }
-    const aux = prevCart.find((item) => item.id === product.id);
-    if (aux) {
-      const index = prevCart.indexOf(aux);
-      aux.quantity === 'undefined' ? prevCart[index].quantity = 1 : prevCart[index].quantity += 1;
-      return localStorage.setItem('cart', JSON.stringify(prevCart));
+    const itemRepetido = cartArr.find((item) => item.id === product.id);
+    if (itemRepetido) {
+      const indexOfItemInCart = cartArr.indexOf(itemRepetido);
+      cartArr[indexOfItemInCart].quantity += 1;
+      return localStorage.setItem('cart', JSON.stringify(cartArr));
     }
     product.quantity = 1;
-    return localStorage.setItem('cart', JSON.stringify([...prevCart, { ...product }]));
+    return localStorage.setItem('cart', JSON.stringify([...cartArr, { ...product }]));
+  }
+
+  removeFromCart() {
+    const { product } = this.props;
+    const cartArr = JSON.parse(localStorage.getItem('cart'));
+    if (!cartArr) return alert('O carrinho está vazio');
+    const itemWithUniqueQuantity = cartArr.find((
+      item,
+    ) => item.id === product.id && item.quantity === 1);
+    if (itemWithUniqueQuantity) {
+      const indexOfUnique = cartArr.indexOf(itemWithUniqueQuantity);
+      cartArr.split(indexOfUnique, 1);
+      return localStorage.setItem('cart', JSON.stringify(cartArr));
+    }
+    product.quantity -= 1;
+    return localStorage.setItem('cart', JSON.stringify(cartArr));
   }
 
   render() {
@@ -42,6 +58,7 @@ class ProductCard extends React.Component {
           Details
         </Link>
         <button data-testid="product-add-to-cart" onClick={this.addToCart} type="button">Add to cart</button>
+        <button type="button" onClick={this.removeFromCart}>Remove</button>
       </div>
     );
   }

@@ -20,8 +20,8 @@ class ProductList extends React.Component {
     return (
       <div>
         <Search updateState={this.setProductsState} categoryId={categoryId} />
-        {products &&
-          products.map((product) => <ProductCard product={product} />)}
+        {products
+          && products.map((product) => <ProductCard product={product} />)}
       </div>
     );
   }
