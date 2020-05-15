@@ -20,7 +20,6 @@ class DetailsPageButton extends Component {
   }
 
   render() {
-    // const { title, thumbnail, price} = this.props.product;
     return (
       <div className="product-button" data-testid="product-detail-add-to-cart">
         <label htmlFor="quantidade">{this.state.quantidade}</label>

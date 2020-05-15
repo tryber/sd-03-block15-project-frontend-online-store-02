@@ -3,10 +3,10 @@ import CartCard from './CartCard';
 
 class CartList extends Component {
   render() {
-    const cartArr = JSON.parse(localStorage.getItem('cart'));
+    const cartItems = JSON.parse(localStorage.getItem('cartItems'));
     return (
       <div>
-        { cartArr.map((
+        { cartItems.map((
           product,
         ) => <CartCard key={product.id} product={product} />)}
       </div>

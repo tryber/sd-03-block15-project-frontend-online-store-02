@@ -4,11 +4,11 @@ import CartList from '../components/CartList';
 
 class CartPage extends Component {
   render() {
-    const cartArr = JSON.parse(localStorage.getItem('cart'));
+    const cartItems = JSON.parse(localStorage.getItem('cartItems'));
 
     return (
       <div>
-        {cartArr === null ? <p data-testid="shopping-cart-empty-message">Seu carrinho está vazio</p>
+        {cartItems === null ? <p data-testid="shopping-cart-empty-message">Seu carrinho está vazio</p>
           : <CartList />}
       </div>
     );

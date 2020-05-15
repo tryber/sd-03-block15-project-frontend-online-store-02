@@ -10,36 +10,35 @@ class ProductCard extends React.Component {
 
   addToCart() {
     const { product } = this.props;
-    const cartArr = JSON.parse(localStorage.getItem('cart'));
-    if (cartArr === null) {
+    const cartItems = JSON.parse(localStorage.getItem('cartItems'));
+    if (cartItems === null) {
       product.quantity = 1;
-      return localStorage.setItem('cart', JSON.stringify([{ ...product }]));
+      return localStorage.setItem('cartItems', JSON.stringify([{ ...product }]));
     }
-    const itemRepetido = cartArr.find((item) => item.id === product.id);
+    const itemRepetido = cartItems.find((item) => item.id === product.id);
     if (itemRepetido) {
-      const indexOfItemInCart = cartArr.indexOf(itemRepetido);
-      cartArr[indexOfItemInCart].quantity += 1;
-      return localStorage.setItem('cart', JSON.stringify(cartArr));
+      const indexOfItemInCart = cartItems.indexOf(itemRepetido);
+      cartItems[indexOfItemInCart].quantity += 1;
+      return localStorage.setItem('cartItems', JSON.stringify(cartItems));
     }
     product.quantity = 1;
-    return localStorage.setItem('cart', JSON.stringify([...cartArr, { ...product }]));
+    return localStorage.setItem('cartItems', JSON.stringify([...cartItems, { ...product }]));
   }
 
   removeFromCart() {
     const { product } = this.props;
-    const cartArr = JSON.parse(localStorage.getItem('cart'));
-    // if (!cartArr) alert('O carrinho está vazio');
-    const itemWithUniqueQuantity = cartArr.find((
+    const cartItems = JSON.parse(localStorage.getItem('cartItems'));
+    const itemWithUniqueQuantity = cartItems.find((
       item,
     ) => item.id === product.id && item.quantity === 1);
     if (itemWithUniqueQuantity) {
-      const indexOfUnique = cartArr.indexOf(itemWithUniqueQuantity);
-      cartArr.splice(indexOfUnique, 1);
-      return localStorage.setItem('cart', JSON.stringify(cartArr));
+      const indexOfUnique = cartItems.indexOf(itemWithUniqueQuantity);
+      cartItems.splice(indexOfUnique, 1);
+      return localStorage.setItem('cartItems', JSON.stringify(cartItems));
     }
-    const indexToSubtract = cartArr.indexOf(cartArr.find((itemCart) => itemCart.id === product.id));
-    cartArr[indexToSubtract].quantity -= 1;
-    return localStorage.setItem('cart', JSON.stringify(cartArr));
+    const indexToSubtract = cartItems.indexOf(cartItems.find((item) => item.id === product.id));
+    cartItems[indexToSubtract].quantity -= 1;
+    return localStorage.setItem('cartItems', JSON.stringify(cartItems);
   }
 
   render() {
