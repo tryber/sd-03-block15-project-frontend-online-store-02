@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 
-import * as api from "../services/api";
-import CartButton from "../components/CartButton";
+import * as api from '../services/api';
+import CartButton from '../components/CartButton';
 
 class Search extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchInput: "",
+      searchInput: '',
       isLoading: false,
     };
     this.apiRequest = this.apiRequest.bind(this);
