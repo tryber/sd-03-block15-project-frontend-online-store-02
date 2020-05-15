@@ -8,15 +8,10 @@ class ProductList extends React.Component {
     super(props);
     this.state = { products: null, notFound: false };
     this.setProductsState = this.setProductsState.bind(this);
-    this.notFoundCase = this.notFoundCase.bind(this);
   }
 
-  setProductsState(products) {
-    this.setState({ products });
-  }
-
-  notFoundCase(notFound) {
-    this.setState({ notFound });
+  setProductsState(products, notFound) {
+    this.setState({ products, notFound });
   }
 
   render() {
@@ -24,7 +19,7 @@ class ProductList extends React.Component {
     const { categoryId } = this.props;
     return (
       <div>
-        <Search updateState={this.setProductsState} notFound={this.notFoundCase} categoryId={categoryId} />
+        <Search updateState={this.setProductsState} categoryId={categoryId} />
         {notFound && <p>Nenhum produto foi encontrado</p>}
         {products &&
           products.map((product) => (

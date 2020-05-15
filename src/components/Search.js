@@ -27,11 +27,10 @@ class Search extends React.Component {
       .getProductsFromCategoryAndQuery(categoryId, searchInput)
       .then(({ results }) => {
         if (results.length === 0) {
-          this.props.notFound(true);
+          this.props.updateState(results, true);
           this.setState({ isLoading: false });
         } else {
-          this.props.updateState(results);
-          this.props.notFound(false);
+          this.props.updateState(results, false);
           this.setState({ isLoading: false });
         }
       });
