@@ -9,6 +9,7 @@ class Search extends React.Component {
     this.state = {
       searchInput: '',
       isLoading: true,
+      error: false,
     };
     this.apiRequest = this.apiRequest.bind(this);
     this.onHandleChange = this.onHandleChange.bind(this);
@@ -25,8 +26,14 @@ class Search extends React.Component {
     api
       .getProductsFromCategoryAndQuery(categoryId, searchInput)
       .then(({ results }) => {
-        this.props.updateState(results);
-        this.setState({ isLoading: false });
+        if (results.length === 0) {
+          this.props.notFound(true);
+          this.setState({ isLoading: false });
+        } else {
+          this.props.updateState(results);
+          this.props.notFound(false);
+          this.setState({ isLoading: false });
+        }
       });
   }
 
