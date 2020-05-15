@@ -8,8 +8,7 @@ class Search extends React.Component {
     super(props);
     this.state = {
       searchInput: "",
-      isLoading: true,
-      error: false,
+      isLoading: false,
     };
     this.apiRequest = this.apiRequest.bind(this);
     this.onHandleChange = this.onHandleChange.bind(this);
@@ -26,13 +25,14 @@ class Search extends React.Component {
     api
       .getProductsFromCategoryAndQuery(categoryId, searchInput)
       .then(({ results }) => {
-        this.props.updateProduct(results, results.length === 0 ? false : true);
-        this.setState({ isLoading: false });
+        this.props.updateProduct(results, results.length === 0);
+        this.setState({ isLoading: true });
       });
   }
 
   render() {
-    const { isLoading, searchInput } = this.state;
+    const { searchInput, isLoading } = this.state;
+    const { hasResultsId } = this.props;
     return (
       <div>
         <input
@@ -48,7 +48,7 @@ class Search extends React.Component {
           Pesquisar
         </button>
         <CartButton />
-        {isLoading && (
+        {!isLoading && hasResultsId && (
           <p data-testid="home-initial-message">
             Digite algum termo de pesquisa ou escolha uma categoria.
           </p>

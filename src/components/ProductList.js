@@ -19,20 +19,20 @@ class ProductList extends React.Component {
     const { categoryId, resultsId } = this.props;
     return (
       <div>
-        <Search updateProduct={this.productsState} categoryId={categoryId} />
+        <Search updateProduct={this.productsState} categoryId={categoryId} hasResultsId={resultsId ? false : true}/>
         {notFound && !resultsId && <p>Nenhum produto foi encontrado</p>}
-        {resultsId &&
-          resultsId.map((product) => (
-            <div key={product.id}>
-              <ProductCard product={product} />
-            </div>
-          ))}
-        {products &&
+        {(products &&
           products.map((product) => (
             <div key={product.id}>
               <ProductCard product={product} />
             </div>
-          ))}
+          ))) ||
+          (resultsId &&
+            resultsId.map((product) => (
+              <div key={product.id}>
+                <ProductCard product={product} />
+              </div>
+            )))}
       </div>
     );
   }
