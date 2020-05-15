@@ -16,7 +16,7 @@ class ProductList extends React.Component {
 
   render() {
     const { products, notFound } = this.state;
-    const { categoryId, resultsId } = this.props;
+    const { categoryId, resultsByCategoryId } = this.props;
     return (
       <div>
         <Search
@@ -24,15 +24,15 @@ class ProductList extends React.Component {
           categoryId={categoryId}
           hasResultsByCategoryId={!resultsByCategoryId}
         />
-        {notFound && !resultsId && <p>Nenhum produto foi encontrado</p>}
+        {notFound && !resultsByCategoryId && <p>Nenhum produto foi encontrado</p>}
         {(products &&
           products.map((product) => (
             <div key={product.id}>
               <ProductCard product={product} />
             </div>
           ))) ||
-          (resultsId &&
-            resultsId.map((product) => (
+          (resultsByCategoryId &&
+            resultsByCategoryId.map((product) => (
               <div key={product.id}>
                 <ProductCard product={product} />
               </div>
