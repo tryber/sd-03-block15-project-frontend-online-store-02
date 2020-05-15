@@ -37,7 +37,7 @@ class ProductCard extends React.Component {
       cartArr.splice(indexOfUnique, 1);
       return localStorage.setItem('cart', JSON.stringify(cartArr));
     }
-    const indexToSubtract = cartArr.indexOf(cartArr.find(itemCart => itemCart.id === product.id));
+    const indexToSubtract = cartArr.indexOf(cartArr.find((itemCart) => itemCart.id === product.id));
     cartArr[indexToSubtract].quantity -= 1;
     return localStorage.setItem('cart', JSON.stringify(cartArr));
   }
