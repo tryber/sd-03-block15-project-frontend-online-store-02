@@ -6,22 +6,33 @@ import Search from './Search';
 class ProductList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { products: null };
-    this.setProductsState = this.setProductsState.bind(this);
+    this.state = { products: null, notFound: false };
+    this.productsState = this.productsState.bind(this);
   }
 
-  setProductsState(products) {
-    this.setState({ products });
+  productsState(products, notFound) {
+    this.setState({ products, notFound });
   }
 
   render() {
-    const { products } = this.state;
-    const { categoryId } = this.props;
+    const { products, notFound } = this.state;
+    const { categoryId, resultsId } = this.props;
     return (
       <div>
-        <Search updateState={this.setProductsState} categoryId={categoryId} />
+        <Search updateProduct={this.productsState} categoryId={categoryId} />
+        {notFound && !resultsId && <p>Nenhum produto foi encontrado</p>}
+        {resultsId
+          && resultsId.map((product) => (
+            <div key={product.id}>
+              <ProductCard product={product} />
+            </div>
+          ))}
         {products
-          && products.map((product) => <ProductCard product={product} />)}
+        && products.map((product) => (
+          <div key={product.id}>
+            <ProductCard product={product} />
+          </div>
+        ))}
       </div>
     );
   }

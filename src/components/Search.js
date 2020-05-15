@@ -1,14 +1,15 @@
-import React from 'react';
+import React from "react";
 
-import * as api from '../services/api';
-import CartButton from '../components/CartButton';
+import * as api from "../services/api";
+import CartButton from "../components/CartButton";
 
 class Search extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchInput: '',
+      searchInput: "",
       isLoading: true,
+      error: false,
     };
     this.apiRequest = this.apiRequest.bind(this);
     this.onHandleChange = this.onHandleChange.bind(this);
@@ -25,7 +26,7 @@ class Search extends React.Component {
     api
       .getProductsFromCategoryAndQuery(categoryId, searchInput)
       .then(({ results }) => {
-        this.props.updateState(results);
+        this.props.updateProduct(results, results.length === 0 ? false : true);
         this.setState({ isLoading: false });
       });
   }
