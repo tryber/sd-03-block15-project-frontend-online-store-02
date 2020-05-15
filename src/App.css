@@ -8,4 +8,6 @@
 
 .lado-direito {
   background-color: bisque;
+  float: right;
+  width: 80%;
 }

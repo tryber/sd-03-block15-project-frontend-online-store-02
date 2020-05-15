@@ -7,9 +7,9 @@ class ProductCard extends React.Component {
     const { title, thumbnail, price, id } = product;
     return (
       <div data-testid="product">
-        <span>{title}</span>
+        <p>{title}</p>
         <img src={thumbnail} alt={title} />
-        <span>{price}</span>
+        <p>{price}</p>
         <Link
           to={{
             pathname: `/product/${id}`,
