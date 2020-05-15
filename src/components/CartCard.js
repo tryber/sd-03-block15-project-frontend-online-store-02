@@ -7,7 +7,7 @@ class CartCard extends Component {
       <div>
         <h3 data-testid="shopping-cart-product-name">{title}</h3>
         <img src={thumbnail} alt={title} />
-        <p data-testeid="shopping-cart-product-quantity">{quantity}</p>
+        <p data-testid="shopping-cart-product-quantity">{quantity}</p>
       </div>
     );
   }

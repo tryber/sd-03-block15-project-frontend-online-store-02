@@ -29,9 +29,7 @@ class ProductList extends React.Component {
           ))}
         {products
         && products.map((product) => (
-          <div key={product.id}>
-            <ProductCard product={product} />
-          </div>
+          <ProductCard key={product.id} product={product} />
         ))}
       </div>
     );
