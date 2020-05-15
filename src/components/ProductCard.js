@@ -5,6 +5,7 @@ class ProductCard extends React.Component {
   constructor(props) {
     super(props);
     this.addToCart = this.addToCart.bind(this);
+    this.removeFromCart = this.removeFromCart.bind(this);
   }
 
   addToCart() {
@@ -27,13 +28,13 @@ class ProductCard extends React.Component {
   removeFromCart() {
     const { product } = this.props;
     const cartArr = JSON.parse(localStorage.getItem('cart'));
-    if (!cartArr) return alert('O carrinho está vazio');
+    // if (!cartArr) return alert('O carrinho está vazio');
     const itemWithUniqueQuantity = cartArr.find((
       item,
     ) => item.id === product.id && item.quantity === 1);
     if (itemWithUniqueQuantity) {
       const indexOfUnique = cartArr.indexOf(itemWithUniqueQuantity);
-      cartArr.split(indexOfUnique, 1);
+      cartArr.splice(indexOfUnique, 1);
       return localStorage.setItem('cart', JSON.stringify(cartArr));
     }
     product.quantity -= 1;
@@ -57,7 +58,13 @@ class ProductCard extends React.Component {
         >
           Details
         </Link>
-        <button data-testid="product-add-to-cart" onClick={this.addToCart} type="button">Add to cart</button>
+        <button
+          data-testid="product-add-to-cart"
+          onClick={this.addToCart}
+          type="button"
+        >
+          Add to cart
+        </button>
         <button type="button" onClick={this.removeFromCart}>Remove</button>
       </div>
     );
