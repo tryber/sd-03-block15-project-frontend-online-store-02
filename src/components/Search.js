@@ -32,7 +32,7 @@ class Search extends React.Component {
 
   render() {
     const { searchInput, isLoading } = this.state;
-    const { hasResultsId } = this.props;
+    const { hasResultsByCategoryId } = this.props;
     return (
       <div>
         <input
@@ -48,7 +48,7 @@ class Search extends React.Component {
           Pesquisar
         </button>
         <CartButton />
-        {!isLoading && hasResultsId && (
+        {!isLoading && hasResultsByCategoryId && (
           <p data-testid="home-initial-message">
             Digite algum termo de pesquisa ou escolha uma categoria.
           </p>
