@@ -22,7 +22,7 @@ class ProductList extends React.Component {
         <Search
           updateProduct={this.productsState}
           categoryId={categoryId}
-          hasResultsId={!resultsId}
+          hasResultsByCategoryId={!resultsByCategoryId}
         />
         {notFound && !resultsId && <p>Nenhum produto foi encontrado</p>}
         {(products &&
