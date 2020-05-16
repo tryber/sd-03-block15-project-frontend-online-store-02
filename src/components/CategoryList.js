@@ -11,7 +11,7 @@ class CategoryList extends React.Component {
               name="category"
               type="radio"
               data-testid="category"
-              onChange={() => onHandleRadio(id)}
+              onChange={() => onHandleRadio(id, searchInput)}
             />
             {name}
           </div>
