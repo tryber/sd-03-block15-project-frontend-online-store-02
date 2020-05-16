@@ -7,6 +7,11 @@ input {
   transition: color 200ms;
 }
 
+label {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
 textarea {
   font-size: 0.8rem;
   letter-spacing: 1px;
@@ -15,9 +20,4 @@ textarea {
   border-radius: 5px;
   border: 1px solid #ccc;
   box-shadow: 1px 1px 1px #999;
-}
-
-label {
-  display: inline-block;
-  margin-bottom: 10px;
 }
