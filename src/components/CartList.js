@@ -6,9 +6,9 @@ class CartList extends Component {
     const cartItems = JSON.parse(localStorage.getItem('cartItems'));
     return (
       <div>
-        { cartItems.map((
-          product,
-        ) => <CartCard key={product.id} product={product} />)}
+        {cartItems.map((item) => (
+          <CartCard key={item.id} product={item} />
+        ))}
       </div>
     );
   }

@@ -1,9 +1,9 @@
 import React from 'react';
 
-import * as api from '../services/api';
 import CartButton from './CartButton';
 
 class Search extends React.Component {
+<<<<<<< HEAD
   constructor(props) {
     super(props);
     this.state = {
@@ -29,25 +29,32 @@ class Search extends React.Component {
       });
   }
 
+=======
+>>>>>>> 5decd275a9de5d77f0ed07c1cef6547ace06ce41
   render() {
-    const { searchInput, isLoading } = this.state;
-    const { hasResultsByCategoryId } = this.props;
+    const {
+      searchInput,
+      categoryId,
+      isLoading,
+      onHandleChange,
+      updateResults,
+    } = this.props;
     return (
       <div>
         <input
           data-testid="query-input"
           value={searchInput}
-          onChange={this.onHandleChange}
+          onChange={(event) => onHandleChange(event)}
         />
         <button
           data-testid="query-button"
           type="button"
-          onClick={this.apiRequest}
+          onClick={() => updateResults(searchInput, categoryId)}
         >
           Pesquisar
         </button>
         <CartButton />
-        {!isLoading && hasResultsByCategoryId && (
+        {!isLoading && (
           <p data-testid="home-initial-message">
             Digite algum termo de pesquisa ou escolha uma categoria.
           </p>
