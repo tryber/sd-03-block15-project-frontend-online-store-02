@@ -27,16 +27,6 @@ class MainPage extends React.Component {
     getCategories().then((categories) => this.setState({ categories }));
   }
 
-  updateResults(categoryId, searchInput) {
-    ApiRequest(categoryId, searchInput).then(({ results }) =>
-      this.setState({
-        results,
-        isLoading: true,
-        notFound: results.length === 0,
-      })
-    );
-  }
-
   onHandleRadio(categoryId) {
     const { searchInput } = this.setState;
     this.setState({ categoryId });
@@ -46,6 +36,16 @@ class MainPage extends React.Component {
   onHandleChange(event) {
     const { value } = event.target;
     this.setState({ searchInput: value });
+  }
+
+  updateResults(categoryId, searchInput) {
+    ApiRequest(categoryId, searchInput).then(({ results }) =>
+      this.setState({
+        results,
+        isLoading: true,
+        notFound: results.length === 0,
+      })
+    );
   }
 
   render() {
