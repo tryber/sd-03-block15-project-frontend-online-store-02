@@ -21,7 +21,7 @@ class Search extends React.Component {
         <button
           data-testid="query-button"
           type="button"
-          onClick={() => updateResults(searchInput, categoryId)}
+          onClick={() => updateResults(categoryId, searchInput)}
         >
           Pesquisar
         </button>
