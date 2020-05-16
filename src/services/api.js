@@ -1,5 +1,5 @@
 export async function getCategories() {
-  return fetch('https://api.mercadolibre.com/sites/MLB/categories')
+  return fetch('https://cors-anywhere.herokuapp.com/https://api.mercadolibre.com/sites/MLB/categories')
     .then((data) => data.json());
 }
 
