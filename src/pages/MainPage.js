@@ -39,13 +39,11 @@ class MainPage extends React.Component {
   }
 
   updateResults(categoryId, searchInput) {
-    ApiRequest(categoryId, searchInput).then(({ results }) =>
-      this.setState({
-        results,
-        isLoading: true,
-        notFound: results.length === 0,
-      }),
-    );
+    ApiRequest(categoryId, searchInput).then(({ results }) => this.setState({
+      results,
+      isLoading: true,
+      notFound: results.length === 0,
+    }));
   }
 
   render() {

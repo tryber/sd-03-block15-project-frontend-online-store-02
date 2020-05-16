@@ -8,8 +8,8 @@ class ProductList extends React.Component {
     return (
       <div>
         {notFound && <p>Nenhum produto foi encontrado</p>}
-        {products &&
-          products.map((product) => (
+        {products
+          && products.map((product) => (
             <div key={product.id}>
               <ProductCard product={product} />
             </div>
