@@ -38,7 +38,13 @@ class CartCard extends Component {
             +
           </AddCartButton>
           <p data-testid="shopping-cart-product-quantity">{quantity}</p>
-          <RemoveCartItem product={product} updateQuantity={this.updateQuantity} testid="product-decrease-quantity">-</RemoveCartItem>
+          <RemoveCartItem
+            product={product}
+            updateQuantity={this.updateQuantity}
+            testid="product-decrease-quantity"
+          >
+            -
+          </RemoveCartItem>
         </div>
       </div>
     );
