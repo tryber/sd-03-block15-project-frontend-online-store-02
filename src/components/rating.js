@@ -28,6 +28,7 @@ class Rating extends Component {
 
   render() {
     const { rating, comment } = this.state;
+    const arrStars = [1,2,3,4,5];
     return (
       <div className="card border-primary mb-3" style={{ width: '18rem' }}>
         <textarea
@@ -39,12 +40,11 @@ class Rating extends Component {
         />
         <div className="card-body">
           <h5 className="card-title">Avaliação</h5>
-          { [...Array(5)].map((_star, index) => {
+          { arrStars.map((star, index) => {
             const ratingValue = index + 1;
             return (
-              <label htmlFor={index}>
+              <label htmlFor={index} key={star}>
                 <input
-                  key={index}
                   className="star" type="radio" id={index}
                   onClick={() => this.onHandleClick(ratingValue)}
                 />
