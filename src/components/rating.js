@@ -44,6 +44,7 @@ class Rating extends Component {
             return (
               <label htmlFor={index}>
                 <input
+                  key={index}
                   className="star" type="radio" id={index}
                   onClick={() => this.onHandleClick(ratingValue)}
                 />
