@@ -24,7 +24,6 @@ class Rating extends Component {
 
   onHandleClean() {
     this.setState({ comment: '', rating: 0 });
-    alert("Sua avaliacao foi registrada, Obrigado!!")
   }
 
   render() {
@@ -44,9 +43,9 @@ class Rating extends Component {
             const ratingValue = index + 1;
             return (
               <label htmlFor={index}>
-                <input 
+                <input
                   className="star" type="radio" id={index}
-                  onClick={() => this.onHandleClick(ratingValue)} 
+                  onClick={() => this.onHandleClick(ratingValue)}
                 />
                 <FaStar color={ratingValue <= rating ? '#ffc107' : '#e4e5e9'} size={35} />
               </label>
