@@ -32,9 +32,9 @@ class Rating extends Component {
       <div className="card border-primary mb-3" style={{ width: '18rem' }}>
         <textarea
           className="card-img-top"
-          rows="8"
           data-testid="product-detail-evaluation"
           onChange={this.onHandleHandle}
+          rows="8"
           value={comment}
         />
         <div className="card-body">
