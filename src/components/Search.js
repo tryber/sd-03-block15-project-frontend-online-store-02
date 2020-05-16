@@ -1,14 +1,14 @@
 import React from 'react';
 
 import * as api from '../services/api';
-import CartButton from '../components/CartButton';
+import CartButton from './CartButton';
 
 class Search extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       searchInput: '',
-      isLoading: true,
+      isLoading: false,
     };
     this.apiRequest = this.apiRequest.bind(this);
     this.onHandleChange = this.onHandleChange.bind(this);
@@ -24,13 +24,14 @@ class Search extends React.Component {
     const { searchInput } = this.state;
     api.getProductsFromCategoryAndQuery(categoryId, searchInput)
       .then(({ results }) => {
-        this.props.updateState(results);
-        this.setState({ isLoading: false });
+        this.props.updateProduct(results, results.length === 0);
+        this.setState({ isLoading: true });
       });
   }
 
   render() {
-    const { isLoading, searchInput } = this.state;
+    const { searchInput, isLoading } = this.state;
+    const { hasResultsByCategoryId } = this.props;
     return (
       <div>
         <input
@@ -46,7 +47,7 @@ class Search extends React.Component {
           Pesquisar
         </button>
         <CartButton />
-        {isLoading && (
+        {!isLoading && hasResultsByCategoryId && (
           <p data-testid="home-initial-message">
             Digite algum termo de pesquisa ou escolha uma categoria.
           </p>
