@@ -12,7 +12,7 @@ class MainPage extends React.Component {
     super(props);
     this.state = {
       categoryId: null,
-      searchInput: "",
+      searchInput: '',
       categories: [],
       results: null,
       isLoading: false,
@@ -44,7 +44,7 @@ class MainPage extends React.Component {
         results,
         isLoading: true,
         notFound: results.length === 0,
-      })
+      }),
     );
   }
 
