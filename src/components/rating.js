@@ -4,11 +4,11 @@ import '../style/rating.css';
 
 class Rating extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       rating: null,
       comment: '',
-    }
+    };
     this.onHandleClick = this.onHandleClick.bind(this);
     this.onHandleHandle = this.onHandleHandle.bind(this);
     this.onHandleClean = this.onHandleClean.bind(this);
@@ -19,7 +19,7 @@ class Rating extends Component {
   }
 
   onHandleHandle(e) {
-    this.setState({ comment: e.target.value })
+    this.setState({ comment: e.target.value });
   }
 
   onHandleClean() {
@@ -30,31 +30,30 @@ class Rating extends Component {
     const { rating, comment } = this.state;
     return (
       <div className="card border-primary mb-3" style={{ width: '18rem' }}>
-        <textarea
-          data-testid="product-detail-evaluation"
+        <textarea 
           className="card-img-top"
-          value={comment}
+          cols="33"
+          data-testid="product-detail-evaluation"
           onChange={this.onHandleHandle}
           rows="5"
-          cols="33"
+          value={comment}
         />
         <div className="card-body">
           <h5 className="card-title">Avaliação</h5>
           {[...Array(5)].map((_star, i) => {
             const ratingValue = i + 1;
             return (
-              <label>
-                <input
-                  type="radio"
-                  name="stars"
-                  onClick={() => this.onHandleClick(ratingValue)}
+              <label htmlFor="starts">
+                <input type="radio" name="stars" onClick={() => this.onHandleClick(ratingValue)}
                 />
                 <FaStar
                   className="Star"
-                  color={ratingValue <= rating ? "#ffc107" : "#e4e5e9"}
-                  size={30} />
+                  color={ratingValue <= rating ? '#ffc107' : '#e4e5e9'}
+                  size={30}
+
+                />
               </label>
-            )
+            );
           })}
         </div>
         <button className="btn btn-primary" onClick={this.onHandleClean}>Enviar</button>

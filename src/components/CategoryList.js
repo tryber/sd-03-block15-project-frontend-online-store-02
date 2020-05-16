@@ -13,7 +13,7 @@ class CategoryList extends React.Component {
               data-testid="category"
               onChange={() => onHandleChange(id)}
             />
-            {name}          
+            {name}
           </div>
         ))}
       </div>
