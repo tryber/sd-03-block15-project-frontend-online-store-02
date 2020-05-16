@@ -28,7 +28,7 @@ class Rating extends Component {
 
   gerarStar() {
     const { rating } = this.state;
-    {[...Array(5)].map((_star, i) => {
+    { [...Array(5)].map((_star, i) => {
       const ratingValue = i + 1;
       return (
         <label htmlFor="starts">
@@ -45,7 +45,7 @@ class Rating extends Component {
           />
         </label>
       );
-    })}
+    }); }
   }
 
   render() {

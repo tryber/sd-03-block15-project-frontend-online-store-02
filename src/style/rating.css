@@ -1,4 +1,4 @@
-input[type="radio"] {
+input[ type = 'radio' ] {
   display: none;
 }
 
@@ -8,9 +8,10 @@ input[type="radio"] {
 }
 
 textarea {
-  font-size: .8rem;
+  font-size: 0.8rem;
   letter-spacing: 1px;
 }
+
 textarea {
   padding: 10px;
   line-height: 1.5;
