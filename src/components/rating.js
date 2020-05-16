@@ -1,0 +1,66 @@
+import React, { Component } from 'react';
+import { FaStar } from 'react-icons/fa';
+import '../style/rating.css';
+
+class Rating extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      rating: null,
+      comment: '',
+    }
+    this.onHandleClick = this.onHandleClick.bind(this);
+    this.onHandleHandle = this.onHandleHandle.bind(this);
+    this.onHandleClean = this.onHandleClean.bind(this);
+  }
+
+  onHandleClick(value) {
+    this.setState({ rating: value });
+  }
+
+  onHandleHandle(e) {
+    this.setState({ comment: e.target.value })
+  }
+
+  onHandleClean() {
+    this.setState({ comment: '', rating: 0 });
+  }
+
+  render() {
+    const { rating, comment } = this.state;
+    return (
+      <div class="card border-primary mb-3" style={{ width: '18rem' }}>
+        <textarea
+          class="card-img-top"
+          data-testid="product-detail-evaluation"
+          value={comment}
+          onChange={this.onHandleHandle}
+          rows="5"
+          cols="33"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Avaliação</h5>
+          {[...Array(5)].map((_star, i) => {
+            const ratingValue = i + 1;
+            return (
+              <label>
+                <input
+                  type="radio"
+                  name="stars"
+                  onClick={() => this.onHandleClick(ratingValue)}
+                />
+                <FaStar
+                  className="Star"
+                  color={ratingValue <= rating ? "#ffc107" : "#e4e5e9"}
+                  size={30} />
+              </label>
+            )
+          })}
+        </div>
+        <button class="btn btn-primary" onClick={this.onHandleClean}>Enviar</button>
+      </div>
+    );
+  }
+}
+
+export default Rating;

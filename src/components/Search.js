@@ -22,8 +22,7 @@ class Search extends React.Component {
   apiRequest() {
     const { categoryId } = this.props;
     const { searchInput } = this.state;
-    api
-      .getProductsFromCategoryAndQuery(categoryId, searchInput)
+    api.getProductsFromCategoryAndQuery(categoryId, searchInput)
       .then(({ results }) => {
         this.props.updateState(results);
         this.setState({ isLoading: false });
