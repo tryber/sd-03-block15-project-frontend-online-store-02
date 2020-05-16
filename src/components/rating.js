@@ -42,7 +42,7 @@ class Rating extends Component {
           { [...Array(5)].map((_star, i) => {
             const ratingValue = i + 1;
             return (
-              <label htmlFor="starts">
+              <label htmlFor="starts" key={i}>
                 <input type="radio" name="stars" onClick={() => this.onHandleClick(ratingValue)} />
                 <FaStar className="Star" color={ratingValue <= rating ? '#ffc107' : '#e4e5e9'} size={30} />
               </label>

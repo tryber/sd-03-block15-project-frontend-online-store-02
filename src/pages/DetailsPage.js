@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import DetailsPageButton from '../components/DetailsPageButton';
-import CartButton from '../components/CartButton';
+import Rating from '../components/Rating';
 
 class DetailsPage extends Component {
   render() {
@@ -10,8 +9,7 @@ class DetailsPage extends Component {
         <h2 data-testid="product-detail-name">{title}</h2>
         <img src={thumbnail} alt={title} />
         <p>{price}</p>
-        <DetailsPageButton />
-        <CartButton />
+        <Rating />
       </div>
     );
   }
