@@ -26,11 +26,33 @@ class Rating extends Component {
     this.setState({ comment: '', rating: 0 });
   }
 
+  gerarStar() {
+    const { rating } = this.state;
+    {[...Array(5)].map((_star, i) => {
+      const ratingValue = i + 1;
+      return (
+        <label htmlFor="starts">
+          <input
+            type="radio"
+            name="stars"
+            onClick={() => this.onHandleClick(ratingValue)}
+          />
+          <FaStar
+            className="Star"
+            color={ratingValue <= rating ? '#ffc107' : '#e4e5e9'}
+            size={30}
+
+          />
+        </label>
+      );
+    })}
+  }
+
   render() {
-    const { rating, comment } = this.state;
+    const { comment } = this.state;
     return (
       <div className="card border-primary mb-3" style={{ width: '18rem' }}>
-        <textarea 
+        <textarea
           className="card-img-top"
           cols="33"
           data-testid="product-detail-evaluation"
@@ -40,21 +62,7 @@ class Rating extends Component {
         />
         <div className="card-body">
           <h5 className="card-title">Avaliação</h5>
-          {[...Array(5)].map((_star, i) => {
-            const ratingValue = i + 1;
-            return (
-              <label htmlFor="starts">
-                <input type="radio" name="stars" onClick={() => this.onHandleClick(ratingValue)}
-                />
-                <FaStar
-                  className="Star"
-                  color={ratingValue <= rating ? '#ffc107' : '#e4e5e9'}
-                  size={30}
-
-                />
-              </label>
-            );
-          })}
+          {this.gerarStar}
         </div>
         <button className="btn btn-primary" onClick={this.onHandleClean}>Enviar</button>
       </div>
