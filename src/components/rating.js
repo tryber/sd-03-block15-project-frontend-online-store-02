@@ -28,7 +28,7 @@ class Rating extends Component {
 
   render() {
     const { rating, comment } = this.state;
-    const arrStars = [1,2,3,4,5];
+    const arrStars = [1, 2, 3, 4, 5];
     return (
       <div className="card border-primary mb-3" style={{ width: '18rem' }}>
         <textarea
