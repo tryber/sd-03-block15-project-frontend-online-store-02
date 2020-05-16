@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FaStar } from 'react-icons/fa';
-import '../style/rating.css';
+import '../style/Rating.css';
 
 class Rating extends Component {
   constructor(props) {
@@ -10,16 +10,16 @@ class Rating extends Component {
       comment: '',
     };
     this.onHandleClick = this.onHandleClick.bind(this);
-    this.onHandleHandle = this.onHandleHandle.bind(this);
+    this.onHandleChange = this.onHandleChange.bind(this);
     this.onHandleClean = this.onHandleClean.bind(this);
   }
 
-  onHandleClick(value) {
-    this.setState({ rating: value });
+  onHandleClick(rating) {
+    this.setState({ rating });
   }
 
-  onHandleHandle(e) {
-    this.setState({ comment: e.target.value });
+  onHandleChange(event) {
+    this.setState({ comment: event.target.value });
   }
 
   onHandleClean() {
@@ -33,18 +33,18 @@ class Rating extends Component {
         <textarea
           className="card-img-top"
           data-testid="product-detail-evaluation"
-          onChange={this.onHandleHandle}
+          onChange={this.onHandleChange}
           rows="8"
           value={comment}
         />
         <div className="card-body">
           <h5 className="card-title">Avaliação</h5>
-          { [...Array(5)].map((_star, i) => {
-            const ratingValue = i + 1;
+          { [...Array(5)].map((_star, index) => {
+            const ratingValue = index + 1;
             return (
-              <label htmlFor="starts">
-                <input type="radio" name="stars" onClick={() => this.onHandleClick(ratingValue)} />
-                <FaStar className="Star" color={ratingValue <= rating ? '#ffc107' : '#e4e5e9'} size={30} />
+              <label htmlFor={index}>
+                <input className="avaliacao" type="radio" id={index} onClick={() => this.onHandleClick(ratingValue)} />
+                <FaStar color={ratingValue <= rating ? '#ffc107' : '#e4e5e9'} size={30} />
               </label>
             );
           }) }
