@@ -2,7 +2,7 @@ import React from 'react';
 
 class CategoryList extends React.Component {
   render() {
-    const { categories, onHandleRadio } = this.props;
+    const { categories, onHandleRadio, searchInput } = this.props;
     return (
       <div>
         {categories.map(({ id, name }) => (
