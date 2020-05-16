@@ -44,7 +44,7 @@ class Rating extends Component {
             return (
               <label htmlFor="starts">
                 <input type="radio" name="stars" onClick={() => this.onHandleClick(ratingValue)} />
-                <FaStar className="Star" key={i} color={ratingValue <= rating ? '#ffc107' : '#e4e5e9'} size={30} />
+                <FaStar className="Star" color={ratingValue <= rating ? '#ffc107' : '#e4e5e9'} size={30} />
               </label>
             );
           }) }
