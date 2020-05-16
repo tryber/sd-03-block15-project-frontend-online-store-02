@@ -1,41 +1,79 @@
 import React from 'react';
 import '../App.css';
 
-import * as api from '../services/api';
+import { getCategories } from '../services/api';
 import CategoryList from '../components/CategoryList';
+import Search from '../components/Search';
 import ProductList from '../components/ProductList';
+import ApiRequest from '../components/ApiRequest';
 
 class MainPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { categoryId: null, categories: [], resultsByCategoryId: null };
+    this.state = {
+      categoryId: null,
+      searchInput: "",
+      categories: [],
+      results: null,
+      isLoading: false,
+      notFound: false,
+    };
     this.onHandleRadio = this.onHandleRadio.bind(this);
+    this.onHandleChange = this.onHandleChange.bind(this);
+    this.updateResults = this.updateResults.bind(this);
   }
 
   componentDidMount() {
-    api.getCategories().then((categories) => this.setState({ categories }));
+    getCategories().then((categories) => this.setState({ categories }));
+  }
+
+  updateResults(categoryId, searchInput) {
+    ApiRequest(categoryId, searchInput).then(({ results }) =>
+      this.setState({
+        results,
+        isLoading: true,
+        notFound: results.length === 0,
+      })
+    );
   }
 
   onHandleRadio(categoryId) {
-    this.setState({ categoryId }, () => {
-      api
-        .getProductsFromCategoryAndQuery(categoryId)
-        .then(({ results }) => this.setState({ resultsByCategoryId: results }));
-    });
+    const { searchInput } = this.setState;
+    this.setState({ categoryId });
+    this.updateResults(categoryId, searchInput);
+  }
+
+  onHandleChange(event) {
+    const { value } = event.target;
+    this.setState({ searchInput: value });
   }
 
   render() {
-    const { categoryId, categories, resultsByCategoryId } = this.state;
+    const {
+      categoryId,
+      categories,
+      results,
+      searchInput,
+      isLoading,
+      notFound,
+    } = this.state;
     return (
       <div>
         <div className="lado-esquerdo">
           <CategoryList
             categories={categories}
-            onHandleChange={this.onHandleRadio}
+            onHandleRadio={this.onHandleRadio}
           />
         </div>
         <div className="lado-direito">
-          <ProductList categoryId={categoryId} resultsByCategoryId={resultsByCategoryId} />
+          <Search
+            onHandleChange={this.onHandleChange}
+            updateResults={this.updateResults}
+            searchInput={searchInput}
+            categoryId={categoryId}
+            isLoading={isLoading}
+          />
+          <ProductList products={results} notFound={notFound} />
         </div>
       </div>
     );
