@@ -29,17 +29,17 @@ class Rating extends Component {
   render() {
     const { rating, comment } = this.state;
     return (
-      <div class="card border-primary mb-3" style={{ width: '18rem' }}>
+      <div className="card border-primary mb-3" style={{ width: '18rem' }}>
         <textarea
-          class="card-img-top"
           data-testid="product-detail-evaluation"
+          className="card-img-top"
           value={comment}
           onChange={this.onHandleHandle}
           rows="5"
           cols="33"
         />
-        <div class="card-body">
-          <h5 class="card-title">Avaliação</h5>
+        <div className="card-body">
+          <h5 className="card-title">Avaliação</h5>
           {[...Array(5)].map((_star, i) => {
             const ratingValue = i + 1;
             return (
@@ -57,7 +57,7 @@ class Rating extends Component {
             )
           })}
         </div>
-        <button class="btn btn-primary" onClick={this.onHandleClean}>Enviar</button>
+        <button className="btn btn-primary" onClick={this.onHandleClean}>Enviar</button>
       </div>
     );
   }
