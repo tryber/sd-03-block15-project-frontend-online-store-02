@@ -5,7 +5,6 @@ import { getCategories } from '../services/api';
 import CategoryList from '../components/CategoryList';
 import Search from '../components/Search';
 import ApiRequest from '../components/ApiRequest';
-import CartButton from '../components/CartButton';
 import MainContent from '../components/MainContent';
 
 class MainPage extends React.Component {
