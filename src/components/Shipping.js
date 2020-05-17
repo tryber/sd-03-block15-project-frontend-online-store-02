@@ -7,7 +7,7 @@ class Shipping extends Component {
 
     return (
       <div className="shipping">
-        { freeShipping && 
+        { freeShipping &&
           (<span data-testid="free-shipping"><FaShippingFast /> Frete grátis</span>) }
       </div>
     );
