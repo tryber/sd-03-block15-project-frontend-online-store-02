@@ -61,7 +61,7 @@ class MainPage extends React.Component {
             <span className="navbar-brand col-md-3 col-lg-2 mr-0 px-3">
               SPA - Mercado Livre - MIT <CartButton />
             </span>
-            <Search 
+            <Search
               onHandleChange={this.onHandleChange}
               updateResults={this.updateResults}
               searchInput={searchInput}
@@ -70,7 +70,7 @@ class MainPage extends React.Component {
             />
           </nav>
         </div>
-        <MainContent results={results} isLoading={isLoading} notFound={notFound}/>
+        <MainContent results={results} isLoading={isLoading} notFound={notFound} />
       </div>
     );
   }
