@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import Shipping from '../components/Shipping';
+
 class ProductCard extends React.Component {
   constructor(props) {
     super(props);
@@ -43,7 +45,7 @@ class ProductCard extends React.Component {
 
   render() {
     const { product } = this.props;
-    const { title, thumbnail, price, id } = product;
+    const { title, thumbnail, price, id, shipping: { free_shipping: freeShipping } } = product;
     return (
       <div data-testid="product" >
         <div className="col-md-4" >
@@ -56,7 +58,7 @@ class ProductCard extends React.Component {
                 data-testid="product-detail-link"
                 className="card-text"
               >
-              R$ {price}
+              R$ {price} and <Shipping freeShipping={freeShipping}/>
               </Link>
             </div>
             <div className="card-footer">
