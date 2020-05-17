@@ -6,6 +6,7 @@ import CategoryList from '../components/CategoryList';
 import Search from '../components/Search';
 import ProductList from '../components/ProductList';
 import ApiRequest from '../components/ApiRequest';
+import CartButton from '../components/CartButton';
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -49,30 +50,21 @@ class MainPage extends React.Component {
   }
 
   render() {
-    const {
-      categoryId,
-      categories,
-      results,
-      searchInput,
-      isLoading,
-      notFound,
-    } = this.state;
+    const { categoryId, categories, results, searchInput, isLoading, notFound} = this.state;
     return (
       <div>
         <div className="category-list">
           <CategoryList categories={categories} onHandleRadio={this.onHandleRadio} />
         </div>
         <div className="search-bar fixed-top">
-        <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-          <span className="navbar-brand col-md-3 col-lg-2 mr-0 px-3">SPA - Mercado Livre - MIT</span>
-          <Search
-            onHandleChange={this.onHandleChange}
-            updateResults={this.updateResults}
-            searchInput={searchInput}
-            categoryId={categoryId}
-            isLoading={isLoading}
-          />
-        </nav>  
+          <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">      
+            <span className="navbar-brand col-md-3 col-lg-2 mr-0 px-3">
+              SPA - Mercado Livre - MIT <CartButton />
+            </span>
+            <Search onHandleChange={this.onHandleChange} updateResults={this.updateResults} 
+              searchInput={searchInput} categoryId={categoryId} isLoading={isLoading}
+            />
+          </nav>  
         </div>
         <main role="main" className="container">
           <div className="jumbotron">

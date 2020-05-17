@@ -17,6 +17,7 @@ class Search extends React.Component {
           onChange={(event) => onHandleChange(event)}
         />
         <button
+          className="btn btn-success"
           data-testid="query-button"
           type="button"
           onClick={() => updateResults(searchInput, categoryId)}
