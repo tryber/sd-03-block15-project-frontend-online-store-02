@@ -50,28 +50,28 @@ class MainPage extends React.Component {
   }
 
   render() {
-    const { categoryId, categories, results, searchInput, isLoading, notFound} = this.state;
+    const { categoryId, categories, results, searchInput, isLoading, notFound } = this.state;
     return (
       <div>
         <div className="category-list">
           <CategoryList categories={categories} onHandleRadio={this.onHandleRadio} />
         </div>
         <div className="search-bar fixed-top">
-          <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">      
+          <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <span className="navbar-brand col-md-3 col-lg-2 mr-0 px-3">
-              SPA - Mercado Livre - MIT <CartButton />
+              SPA - Mercado Livre - MIT  <CartButton />
             </span>
-            <Search onHandleChange={this.onHandleChange} updateResults={this.updateResults} 
+            <Search onHandleChange={this.onHandleChange} updateResults={this.updateResults}
               searchInput={searchInput} categoryId={categoryId} isLoading={isLoading}
             />
-          </nav>  
+          </nav>
         </div>
         <main role="main" className="container">
           <div className="jumbotron">
             {!isLoading && (
-            <p data-testid="home-initial-message">
-              Digite algum termo de pesquisa ou escolha uma categoria.
-            </p>
+              <p data-testid="home-initial-message">
+                Digite algum termo de pesquisa ou escolha uma categoria.
+              </p>
             )}
             <ProductList products={results} notFound={notFound} />
           </div>
