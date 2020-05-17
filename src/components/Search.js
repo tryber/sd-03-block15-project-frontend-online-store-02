@@ -9,7 +9,7 @@ class Search extends React.Component {
       updateResults,
     } = this.props;
     return (
-      <>
+      <span>
         <input
           className="form-control form-control-dark w-100"
           data-testid="query-input"
@@ -24,7 +24,7 @@ class Search extends React.Component {
         >
           Pesquisar
         </button>
-      </>
+      </span>
     );
   }
 }
