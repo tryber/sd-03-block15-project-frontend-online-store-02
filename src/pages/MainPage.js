@@ -63,6 +63,7 @@ class MainPage extends React.Component {
           <CategoryList
             categories={categories}
             onHandleRadio={this.onHandleRadio}
+            searchInput={searchInput}
           />
         </div>
         <div className="lado-direito">
