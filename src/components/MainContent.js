@@ -6,16 +6,14 @@ class MainContent extends Component {
     const { results, isLoading, notFound } = this.props;
 
     return (
-      <main role="main" className="container">
-        <div className="jumbotron">
-          {!isLoading && (
-            <p data-testid="home-initial-message">
-              Digite algum termo de pesquisa ou escolha uma categoria.
-            </p>
-          )}
-          <ProductList products={results} notFound={notFound} />
-        </div>
-      </main>
+      <div className="jumbotron">
+        {!isLoading && (
+          <p data-testid="home-initial-message">
+            Digite algum termo de pesquisa ou escolha uma categoria.
+          </p>
+        )}
+        <ProductList products={results} notFound={notFound} />
+      </div>
     );
   }
 }

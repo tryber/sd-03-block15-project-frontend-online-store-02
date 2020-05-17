@@ -70,7 +70,9 @@ class MainPage extends React.Component {
             />
           </nav>
         </div>
-        <MainContent results={results} isLoading={isLoading} notFound={notFound} />
+        <main role="main" className="container">
+          <MainContent results={results} isLoading={isLoading} notFound={notFound} />
+        </main>
       </div>
     );
   }
