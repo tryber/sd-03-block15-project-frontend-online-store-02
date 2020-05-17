@@ -59,7 +59,7 @@ class MainPage extends React.Component {
         <div className="search-bar fixed-top">
           <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <span className="navbar-brand col-md-3 col-lg-2 mr-0 px-3">
-              SPA - Mercado Livre - MIT  <CartButton />
+              SPA - Mercado Livre - MIT <CartButton />
             </span>
             <Search onHandleChange={this.onHandleChange} updateResults={this.updateResults}
               searchInput={searchInput} categoryId={categoryId} isLoading={isLoading}
