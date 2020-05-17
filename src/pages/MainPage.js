@@ -4,9 +4,9 @@ import '../App.css';
 import { getCategories } from '../services/api';
 import CategoryList from '../components/CategoryList';
 import Search from '../components/Search';
-import ProductList from '../components/ProductList';
 import ApiRequest from '../components/ApiRequest';
 import CartButton from '../components/CartButton';
+import MainContent from '../components/MainContent';
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -50,7 +50,7 @@ class MainPage extends React.Component {
   }
 
   render() {
-    const { categoryId, categories, results, searchInput, isLoading, notFound } = this.state;
+    const { categoryId, results, categories, searchInput, isLoading, notFound } = this.state;
     return (
       <div>
         <div className="category-list">
@@ -61,21 +61,16 @@ class MainPage extends React.Component {
             <span className="navbar-brand col-md-3 col-lg-2 mr-0 px-3">
               SPA - Mercado Livre - MIT <CartButton />
             </span>
-            <Search onHandleChange={this.onHandleChange} updateResults={this.updateResults}
-              searchInput={searchInput} categoryId={categoryId} isLoading={isLoading}
+            <Search 
+              onHandleChange={this.onHandleChange}
+              updateResults={this.updateResults}
+              searchInput={searchInput}
+              categoryId={categoryId}
+              isLoading={isLoading}
             />
           </nav>
         </div>
-        <main role="main" className="container">
-          <div className="jumbotron">
-            {!isLoading && (
-              <p data-testid="home-initial-message">
-                Digite algum termo de pesquisa ou escolha uma categoria.
-              </p>
-            )}
-            <ProductList products={results} notFound={notFound} />
-          </div>
-        </main>
+        <MainContent results={results} isLoading={isLoading} notFound={notFound}/>
       </div>
     );
   }
