@@ -20,7 +20,7 @@ class Search extends React.Component {
           className="btn btn-success"
           data-testid="query-button"
           type="button"
-          onClick={() => updateResults(searchInput, categoryId)}
+          onClick={() => updateResults(categoryId, searchInput)}
         >
           Pesquisar
         </button>
