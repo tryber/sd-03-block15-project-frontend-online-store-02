@@ -56,20 +56,13 @@ class MainPage extends React.Component {
         <div className="category-list">
           <CategoryList categories={categories} onHandleRadio={this.onHandleRadio} />
         </div>
-        <div className="search-bar fixed-top">
-          <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <span className="navbar-brand col-md-3 col-lg-2 mr-0 px-3">
-              SPA - Mercado Livre - MIT <CartButton />
-            </span>
-            <Search
-              onHandleChange={this.onHandleChange}
-              updateResults={this.updateResults}
-              searchInput={searchInput}
-              categoryId={categoryId}
-              isLoading={isLoading}
-            />
-          </nav>
-        </div>
+        <Search
+          onHandleChange={this.onHandleChange}
+          updateResults={this.updateResults}
+          searchInput={searchInput}
+          categoryId={categoryId}
+          isLoading={isLoading}
+        />
         <main role="main" className="container">
           <MainContent results={results} isLoading={isLoading} notFound={notFound} />
         </main>
