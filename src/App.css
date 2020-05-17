@@ -2,11 +2,11 @@
   text-align: center;
 }
 
-.lado-esquerdo {
+.category-list {
   float: left;
 }
 
-.lado-direito {
+.search-bar {
   background-color: bisque;
   float: right;
   width: 80%;

@@ -45,27 +45,27 @@ class ProductCard extends React.Component {
     const { product } = this.props;
     const { title, thumbnail, price, id } = product;
     return (
-      <div data-testid="product">
-        <p>{title}</p>
-        <img src={thumbnail} alt={title} />
-        <p>{price}</p>
-        <Link
-          to={{
-            pathname: `/product/${id}`,
-            state: { product },
-          }}
-          data-testid="product-detail-link"
-        >
-          Details
-        </Link>
-        <button
-          data-testid="product-add-to-cart"
-          onClick={this.addToCart}
-          type="button"
-        >
-          Add to cart
-        </button>
-        <button type="button" onClick={this.removeFromCart}>Remove</button>
+      <div data-testid="product" >
+        <div className="col-sm" >
+          <div className="card border border-success" style={{ width: '15rem' }} >
+            <img src={thumbnail} alt={title} className="rounded mx-auto d-block" />
+            <div className="card-body">
+              <h6 className="card-title">{title}</h6>
+              <Link
+                to={{ pathname: `/product/${id}`, state: { product }, }}
+                data-testid="product-detail-link"
+                className="card-text" >
+              R$ {price}
+              </Link>
+            </div>
+            <div className="card-footer">
+              <button data-testid="product-add-to-cart" onClick={this.addToCart} type="button" >
+                Add to cart
+              </button>
+              <button type="button" onClick={this.removeFromCart}>Remove</button>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

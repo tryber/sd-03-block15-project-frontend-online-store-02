@@ -59,13 +59,12 @@ class MainPage extends React.Component {
     } = this.state;
     return (
       <div>
-        <div className="lado-esquerdo">
-          <CategoryList
-            categories={categories}
-            onHandleRadio={this.onHandleRadio}
-          />
+        <div className="category-list">
+          <CategoryList categories={categories} onHandleRadio={this.onHandleRadio} />
         </div>
-        <div className="lado-direito">
+        <div className="search-bar fixed-top">
+        <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+          <span className="navbar-brand col-md-3 col-lg-2 mr-0 px-3">SPA - Mercado Livre - MIT</span>
           <Search
             onHandleChange={this.onHandleChange}
             updateResults={this.updateResults}
@@ -73,8 +72,18 @@ class MainPage extends React.Component {
             categoryId={categoryId}
             isLoading={isLoading}
           />
-          <ProductList products={results} notFound={notFound} />
+        </nav>  
         </div>
+        <main role="main" className="container">
+          <div className="jumbotron">
+            {!isLoading && (
+            <p data-testid="home-initial-message">
+              Digite algum termo de pesquisa ou escolha uma categoria.
+            </p>
+            )}
+            <ProductList products={results} notFound={notFound} />
+          </div>
+        </main>
       </div>
     );
   }
