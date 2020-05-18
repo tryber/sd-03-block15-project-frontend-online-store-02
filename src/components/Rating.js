@@ -31,21 +31,23 @@ class Rating extends Component {
     const arrStars = [1, 2, 3, 4, 5];
     return (
       <div className="card border-primary mb-3" style={{ width: '18rem' }}>
-        <textarea
-          className="card-img-top"
-          data-testid="product-detail-evaluation"
-          onChange={this.onHandleChange}
-          rows="8"
-          value={comment}
-        />
+        <textarea className="card-img-top" data-testid="product-detail-evaluation"
+          onChange={this.onHandleChange} rows="8" value={comment} />
+        <div className="list-group-item" >
+          <label htmlFor="email"> Email
+            <input className="form-control" aria-describedby="emailHelp" type="email" />
+            <small id="emailHelp" class="form-text text-muted">
+              Digite seu email como no exemplo: user@servidor.com 
+            </small>
+          </label>
+        </div>
         <div className="card-body">
           <h5 className="card-title">Avaliação</h5>
           { arrStars.map((star, index) => {
             const ratingValue = index + 1;
             return (
               <label htmlFor={index} key={star}>
-                <input
-                  className="star" type="radio" id={index}
+                <input className="star" type="radio" id={index}
                   onClick={() => this.onHandleClick(ratingValue)}
                 />
                 <FaStar color={ratingValue <= rating ? '#ffc107' : '#e4e5e9'} size={35} />
