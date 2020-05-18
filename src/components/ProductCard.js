@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import AddCartButton from './AddCartButton';
+import Shipping from './Shipping';
 
 class ProductCard extends React.Component {
   render() {
