@@ -30,10 +30,10 @@ class MainPage extends React.Component {
     getCategories().then((categories) => this.setState({ categories }));
   }
 
-  onHandleRadio(categoryId) {
-    const { searchInput } = this.setState;
-    this.setState({ categoryId });
-    this.updateResults(categoryId, searchInput);
+  onHandleRadio(categoryId, searchInput) {
+    this.setState({ categoryId }, () =>
+      this.updateResults(categoryId, searchInput),
+    );
   }
 
   onHandleChange(event) {
@@ -42,11 +42,13 @@ class MainPage extends React.Component {
   }
 
   updateResults(categoryId, searchInput) {
-    ApiRequest(categoryId, searchInput).then(({ results }) => this.setState({
-      results,
-      isLoading: true,
-      notFound: results.length === 0,
-    }));
+    ApiRequest(categoryId, searchInput).then(({ results }) => {
+      this.setState({
+        results,
+        isLoading: true,
+        notFound: results.length === 0,
+      });
+    });
   }
 
   updateCartSize() {
