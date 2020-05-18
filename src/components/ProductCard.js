@@ -58,7 +58,7 @@ class ProductCard extends React.Component {
                 data-testid="product-detail-link"
                 className="card-text"
               >
-              R$ {price} and <Shipping freeShipping={freeShipping} />
+              R$ {price} <Shipping freeShipping={freeShipping} />
               </Link>
             </div>
             <div className="card-footer">
