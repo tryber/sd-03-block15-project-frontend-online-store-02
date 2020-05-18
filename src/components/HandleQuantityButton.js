@@ -7,7 +7,8 @@ class HandleQuantityButton extends Component {
   constructor(props) {
     super(props);
     const cart = JSON.parse(localStorage.getItem('cartItems'));
-    const quantity = cart && cart.find((item) => item.id === props.product.id).quantity;
+    const quantity = cart && cart.some((item) => item.id === props.product.id)
+      ? cart.find((item) => item.id === props.product.id).quantity : 0;
     this.state = { quantity };
     this.updateQuantity = this.updateQuantity.bind(this);
   }
