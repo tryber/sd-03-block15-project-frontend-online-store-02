@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+<<<<<<< HEAD
 import Shipping from '../components/Shipping';
 
 class ProductCard extends React.Component {
@@ -42,7 +43,11 @@ class ProductCard extends React.Component {
     cartItems[indexToSubtract].quantity -= 1;
     return localStorage.setItem('cartItems', JSON.stringify(cartItems));
   }
+=======
+import AddCartButton from './AddCartButton';
+>>>>>>> 76e3b95751982c3a1dcbf6ece4bb5fc81e9dac73
 
+class ProductCard extends React.Component {
   render() {
     const { product } = this.props;
     const { title, thumbnail, price, id, shipping: { free_shipping: freeShipping } } = product;
@@ -62,9 +67,9 @@ class ProductCard extends React.Component {
               </Link>
             </div>
             <div className="card-footer">
-              <button data-testid="product-add-to-cart" onClick={this.addToCart} type="button" >
+              <AddCartButton product={product} testid="product-add-to-cart">
                 Add to cart
-              </button>
+              </AddCartButton>
             </div>
           </div>
         </div>
