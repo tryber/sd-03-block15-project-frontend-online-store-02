@@ -4,8 +4,8 @@ import '../App.css';
 import { getCategories } from '../services/api';
 import CategoryList from '../components/CategoryList';
 import Search from '../components/Search';
-import ProductList from '../components/ProductList';
 import ApiRequest from '../components/ApiRequest';
+import MainContent from '../components/MainContent';
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -47,33 +47,22 @@ class MainPage extends React.Component {
   }
 
   render() {
-    const {
-      categoryId,
-      categories,
-      results,
-      searchInput,
-      isLoading,
-      notFound,
-    } = this.state;
+    const { categoryId, results, categories, searchInput, isLoading, notFound } = this.state;
     return (
       <div>
-        <div className="lado-esquerdo">
-          <CategoryList
-            categories={categories}
-            onHandleRadio={this.onHandleRadio}
-            searchInput={searchInput}
-          />
+        <div className="category-list">
+          <CategoryList categories={categories} onHandleRadio={this.onHandleRadio} />
         </div>
-        <div className="lado-direito">
-          <Search
-            onHandleChange={this.onHandleChange}
-            updateResults={this.updateResults}
-            searchInput={searchInput}
-            categoryId={categoryId}
-            isLoading={isLoading}
-          />
-          <ProductList products={results} notFound={notFound} />
-        </div>
+        <Search
+          onHandleChange={this.onHandleChange}
+          updateResults={this.updateResults}
+          searchInput={searchInput}
+          categoryId={categoryId}
+          isLoading={isLoading}
+        />
+        <main role="main" className="container">
+          <MainContent results={results} isLoading={isLoading} notFound={notFound} />
+        </main>
       </div>
     );
   }

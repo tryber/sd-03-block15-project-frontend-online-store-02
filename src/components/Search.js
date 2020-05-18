@@ -1,36 +1,35 @@
 import React from 'react';
-
-import CartButton from './CartButton';
+import CartButton from '../components/CartButton';
 
 class Search extends React.Component {
   render() {
     const {
       searchInput,
       categoryId,
-      isLoading,
       onHandleChange,
       updateResults,
     } = this.props;
     return (
       <div>
-        <input
-          data-testid="query-input"
-          value={searchInput}
-          onChange={(event) => onHandleChange(event)}
-        />
-        <button
-          data-testid="query-button"
-          type="button"
-          onClick={() => updateResults(categoryId, searchInput)}
-        >
-          Pesquisar
-        </button>
-        <CartButton />
-        {!isLoading && (
-          <p data-testid="home-initial-message">
-            Digite algum termo de pesquisa ou escolha uma categoria.
-          </p>
-        )}
+        <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+          <span className="navbar-brand col-md-3 col-lg-2 mr-0 px-3">
+            SPA - Mercado Livre - MIT <CartButton />
+          </span>
+          <input
+            className="form-control form-control-dark w-100"
+            data-testid="query-input"
+            value={searchInput}
+            onChange={(event) => onHandleChange(event)}
+          />
+          <button
+            className="btn btn-success"
+            data-testid="query-button"
+            type="button"
+            onClick={() => updateResults(categoryId, searchInput)}
+          >
+            Pesquisar
+          </button>
+        </nav>
       </div>
     );
   }
