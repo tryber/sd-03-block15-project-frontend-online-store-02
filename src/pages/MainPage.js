@@ -29,7 +29,7 @@ class MainPage extends React.Component {
 
   onHandleRadio(categoryId, searchInput) {
     this.setState({ categoryId }, () =>
-      this.updateResults(categoryId, searchInput)
+      this.updateResults(categoryId, searchInput),
     );
   }
 
