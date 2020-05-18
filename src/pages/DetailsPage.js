@@ -14,7 +14,12 @@ class DetailsPage extends Component {
         <h2 data-testid="product-detail-name">{title}</h2>
         <img src={thumbnail} alt={title} />
         <p>{price}</p>
-        <HandleQuantityButton product={product} />
+        <HandleQuantityButton
+          product={product}
+          testidAdd="product-detail-add-to-cart"
+          testidSubtract="product-decrease-quantity"
+          testidQuantity="shopping-cart-product-quantity"
+        />
         <Rating />
       </div>
     );

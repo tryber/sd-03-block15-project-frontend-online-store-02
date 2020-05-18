@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import AddCartButton from './AddCartButton';
 import RemoveCartItem from './RemoveCartItem';
 
-class DetailsPageButton extends Component {
+class HandleQuantityButton extends Component {
   constructor(props) {
     super(props);
     const cart = JSON.parse(localStorage.getItem('cartItems'));
@@ -23,22 +23,22 @@ class DetailsPageButton extends Component {
   }
 
   render() {
-    const { product } = this.props;
+    const { product, testidQuantity, testidAdd, testidSubtract } = this.props;
     const { quantity } = this.state;
     return (
-      <div className="product-button" data-testid="product-detail-add-to-cart">
+      <div className="product-button">
         <AddCartButton
           product={product}
-          testid="product-increase-quantity"
+          testid={testidAdd}
           updateQuantity={this.updateQuantity}
         >
           +
         </AddCartButton>
-        <label htmlFor="quantidade" data-testid="shopping-cart-product-quantity">{quantity}</label>
+        <label htmlFor="quantidade" data-testid={testidQuantity}>{quantity}</label>
         <RemoveCartItem
           product={product}
           updateQuantity={this.updateQuantity}
-          testid="product-decrease-quantity"
+          testid={testidSubtract}
         >
           -
         </RemoveCartItem>
@@ -47,4 +47,4 @@ class DetailsPageButton extends Component {
   }
 }
 
-export default DetailsPageButton;
+export default HandleQuantityButton;
