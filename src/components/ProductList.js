@@ -4,7 +4,7 @@ import ProductCard from './ProductCard';
 
 class ProductList extends React.Component {
   render() {
-    const { products, notFound } = this.props;
+    const { products, notFound, cartSize } = this.props;
     return (
       <div>
         <main role="main" className="col-md-9 ml-sm-auto col-lg-10 px-md-4">
@@ -15,7 +15,7 @@ class ProductList extends React.Component {
                 {products &&
                   products.map((product) => (
                     <div key={product.id}>
-                      <ProductCard product={product} />
+                      <ProductCard product={product} cartSize={cartSize} />
                     </div>
                   ))}
               </div>

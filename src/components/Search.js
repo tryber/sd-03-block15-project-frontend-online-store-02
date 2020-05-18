@@ -1,5 +1,5 @@
 import React from 'react';
-import CartButton from '../components/CartButton';
+import CartButton from './CartButton';
 
 class Search extends React.Component {
   render() {
@@ -8,12 +8,15 @@ class Search extends React.Component {
       categoryId,
       onHandleChange,
       updateResults,
+      cartSize,
     } = this.props;
     return (
       <div>
         <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
           <span className="navbar-brand col-md-3 col-lg-2 mr-0 px-3">
-            SPA - Mercado Livre - MIT <CartButton />
+            SPA - Mercado Livre - MIT
+            {' '}
+            <CartButton cartSize={cartSize} />
           </span>
           <input
             className="form-control form-control-dark w-100"

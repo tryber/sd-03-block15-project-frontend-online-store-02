@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import ProductList from '../components/ProductList';
+import ProductList from './ProductList';
 
 class MainContent extends Component {
   render() {
-    const { results, isLoading, notFound } = this.props;
+    const { results, isLoading, notFound, cartSize } = this.props;
 
     return (
       <div className="jumbotron">
@@ -12,7 +12,7 @@ class MainContent extends Component {
             Digite algum termo de pesquisa ou escolha uma categoria.
           </p>
         )}
-        <ProductList products={results} notFound={notFound} />
+        <ProductList products={results} notFound={notFound} cartSize={cartSize} />
       </div>
     );
   }
