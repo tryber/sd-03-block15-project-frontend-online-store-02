@@ -5,10 +5,9 @@ import CartList from '../components/CartList';
 class CartPage extends Component {
   render() {
     const cartItems = JSON.parse(localStorage.getItem('cartItems'));
-
     return (
       <div>
-        {cartItems === null
+        {cartItems === null || cartItems.lenght === 0
           ? <p data-testid="shopping-cart-empty-message">Seu carrinho está vazio</p>
           : <CartList />}
       </div>

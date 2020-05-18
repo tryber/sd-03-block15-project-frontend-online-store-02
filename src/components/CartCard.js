@@ -1,15 +1,23 @@
 import React, { Component } from 'react';
-import DetailsPageButton from './DetailsPageButton';
+
+import HandleQuantityButton from './HandleQuantityButton';
 
 class CartCard extends Component {
   render() {
-    const { title, thumbnail, quantity } = this.props.product;
+    const { product } = this.props;
+    const { title, thumbnail } = product;
     return (
       <div>
         <h3 data-testid="shopping-cart-product-name">{title}</h3>
         <img src={thumbnail} alt={title} />
-        <p data-testid="shopping-cart-product-quantity">{quantity}</p>
-        <DetailsPageButton />
+        <div style={{ display: 'inline-block' }}>
+          <HandleQuantityButton
+            product={product}
+            testidQuantity="shopping-cart-product-quantity"
+            testidAdd="product-increase-quantity"
+            testidSubtract="product-decrease-quantity"
+          />
+        </div>
       </div>
     );
   }
