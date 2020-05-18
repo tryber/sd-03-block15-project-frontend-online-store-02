@@ -39,7 +39,6 @@ class MainPage extends React.Component {
   }
 
   updateResults(categoryId, searchInput) {
-<<<<<<< HEAD
     ApiRequest(categoryId, searchInput).then(({ results }) => {
       this.setState({
         results,
@@ -47,20 +46,12 @@ class MainPage extends React.Component {
         notFound: results.length === 0,
       });
     });
-=======
-    ApiRequest(categoryId, searchInput).then(({ results }) => this.setState({
-      results,
-      isLoading: true,
-      notFound: results.length === 0,
-    }));
->>>>>>> cab940b0826f9c446fbaeb995e9b4ceebf965c68
   }
 
   render() {
     const { categoryId, results, categories, searchInput, isLoading, notFound } = this.state;
     return (
       <div>
-<<<<<<< HEAD
         <div className="lado-esquerdo">
           <CategoryList
             categories={categories}
@@ -78,10 +69,6 @@ class MainPage extends React.Component {
             isLoading={isLoading}
           />
           <ProductList products={results} notFound={notFound} />
-=======
-        <div className="category-list">
-          <CategoryList categories={categories} onHandleRadio={this.onHandleRadio} />
->>>>>>> cab940b0826f9c446fbaeb995e9b4ceebf965c68
         </div>
         <Search
           onHandleChange={this.onHandleChange}
