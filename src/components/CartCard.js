@@ -13,9 +13,9 @@ class CartCard extends Component {
         <div style={{ display: 'inline-block' }}>
           <HandleQuantityButton
             product={product}
+            testidQuantity="shopping-cart-product-quantity"
             testidAdd="product-increase-quantity"
             testidSubtract="product-decrease-quantity"
-            testidQuantity="shopping-cart-product-quantity"
           />
         </div>
       </div>
