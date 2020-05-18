@@ -50,22 +50,21 @@ class ProductCard extends React.Component {
       <div data-testid="product" >
         <div className="col-md-4" >
           <div className="card mb-4 shadow-sm border border-success" style={{ width: '15rem' }} >
-            <img src={thumbnail} alt={title} className="rounded mx-auto d-block" />
+            <img src={thumbnail} alt={title} className="rounded mx-auto d-block" />     
             <div className="card-body">
-              <h6 className="card-title">{title}</h6>
+              <h6 className="card-title">R$ {price} - {title}</h6>
               <Link
                 to={{ pathname: `/product/${id}`, state: { product } }}
                 data-testid="product-detail-link"
                 className="card-text"
               >
-              R$ {price} <Shipping freeShipping={freeShipping} />
+              Detalhes <Shipping freeShipping={freeShipping}></Shipping>
               </Link>
             </div>
             <div className="card-footer">
               <button data-testid="product-add-to-cart" onClick={this.addToCart} type="button" >
                 Add to cart
               </button>
-              <button type="button" onClick={this.removeFromCart}>Remove</button>
             </div>
           </div>
         </div>
