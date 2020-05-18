@@ -52,23 +52,8 @@ class MainPage extends React.Component {
     const { categoryId, results, categories, searchInput, isLoading, notFound } = this.state;
     return (
       <div>
-        <div className="lado-esquerdo">
-          <CategoryList
-            categories={categories}
-            searchInput={searchInput}
-            onHandleRadio={this.onHandleRadio}
-            searchInput={searchInput}
-          />
-        </div>
-        <div className="lado-direito">
-          <Search
-            onHandleChange={this.onHandleChange}
-            updateResults={this.updateResults}
-            searchInput={searchInput}
-            categoryId={categoryId}
-            isLoading={isLoading}
-          />
-          <ProductList products={results} notFound={notFound} />
+        <div className="category-list">
+          <CategoryList categories={categories} onHandleRadio={this.onHandleRadio} />
         </div>
         <Search
           onHandleChange={this.onHandleChange}
