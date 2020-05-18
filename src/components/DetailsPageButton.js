@@ -21,10 +21,10 @@ class DetailsPageButton extends Component {
 
   render() {
     return (
-      <div className="product-button" data-testid="product-detail-add-to-cart">
+      <div className="product-button">
         <label htmlFor="quantidade">{this.state.quantidade}</label>
-        <button onClick={this.onClickButtonPlus}>+</button>
-        <button onClick={this.onClickButtonMinus}>-</button>
+        <button data-testid="product-increase-quantity" onClick={this.onClickButtonPlus}>+</button>
+        <button data-testid="product-decrease-quantity" onClick={this.onClickButtonMinus}>-</button>
       </div>
     );
   }
