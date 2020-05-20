@@ -3,7 +3,7 @@ import ProductList from './ProductList';
 
 class MainContent extends Component {
   render() {
-    const { results, isLoading, notFound, cartSize } = this.props;
+    const { results, isLoading, notFound, updateSize } = this.props;
 
     return (
       <div className="jumbotron">
@@ -12,7 +12,11 @@ class MainContent extends Component {
             Digite algum termo de pesquisa ou escolha uma categoria.
           </p>
         )}
-        <ProductList products={results} notFound={notFound} cartSize={cartSize} />
+        <ProductList
+          updateSize={updateSize}
+          products={results}
+          notFound={notFound}
+        />
       </div>
     );
   }

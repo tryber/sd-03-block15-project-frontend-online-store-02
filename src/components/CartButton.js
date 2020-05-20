@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 class CartButton extends React.Component {
   render() {
+    const { cartSize } = this.props;
     return (
       <div>
         <Link to="/cart" data-testid="shopping-cart-button">
@@ -12,7 +13,7 @@ class CartButton extends React.Component {
             src="https://cdn.onlinewebfonts.com/svg/img_290616.png"
           />
         </Link>
-        <p>{this.props.cartSize}</p>
+        <p data-testid="shopping-cart-size">{cartSize}</p>
       </div>
     );
   }

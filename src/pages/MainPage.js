@@ -17,9 +17,6 @@ class MainPage extends React.Component {
       results: null,
       isLoading: false,
       notFound: false,
-      size: JSON.parse(localStorage.cartItems).reduce(
-        (acc, { quantity }) => acc + quantity, 0,
-      ),
     };
     this.onHandleRadio = this.onHandleRadio.bind(this);
     this.onHandleChange = this.onHandleChange.bind(this);
@@ -31,9 +28,7 @@ class MainPage extends React.Component {
   }
 
   onHandleRadio(categoryId, searchInput) {
-    this.setState({ categoryId }, () =>
-      this.updateResults(categoryId, searchInput),
-    );
+    this.setState({ categoryId }, () => this.updateResults(categoryId, searchInput));
   }
 
   onHandleChange(event) {
@@ -51,16 +46,10 @@ class MainPage extends React.Component {
     });
   }
 
-  updateCartSize() {
-    this.setState({
-      cartSize: JSON.parse(localStorage.cartItems).reduce(
-        (acc, { quantity }) => acc + quantity, 0,
-      ),
-    });
-  }
-
   render() {
-    const { categoryId, results, categories, searchInput, isLoading, notFound, size } = this.state;
+    const { categoryId, results, categories, searchInput, isLoading, notFound } = this.state;
+    const { updateSize, cartSize } = this.props;
+    const mainProps = { results, isLoading, notFound, updateSize };
     return (
       <div>
         <div className="category-list">
@@ -72,10 +61,10 @@ class MainPage extends React.Component {
           searchInput={searchInput}
           categoryId={categoryId}
           isLoading={isLoading}
-          size={size}
+          cartSize={cartSize}
         />
         <main role="main" className="container">
-          <MainContent results={results} isLoading={isLoading} notFound={notFound} size={size} />
+          <MainContent {...mainProps} updateSize={updateSize} />
         </main>
       </div>
     );

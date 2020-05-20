@@ -6,7 +6,8 @@ import CartButton from '../components/CartButton';
 
 class DetailsPage extends Component {
   render() {
-    const { location: { state: { product, cartSize } } } = this.props;
+    console.log(this.props);
+    const { location: { state: product }, updateSize, cartSize } = this.props;
     const { title, thumbnail, price } = product;
     return (
       <div>
@@ -15,6 +16,7 @@ class DetailsPage extends Component {
         <img src={thumbnail} alt={title} />
         <p>{price}</p>
         <HandleQuantityButton
+          updateSize={updateSize}
           product={product}
           testidAdd="product-detail-add-to-cart"
           testidSubtract="product-decrease-quantity"

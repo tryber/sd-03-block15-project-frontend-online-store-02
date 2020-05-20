@@ -24,7 +24,7 @@ class HandleQuantityButton extends Component {
   }
 
   render() {
-    const { product, testidQuantity, testidAdd, testidSubtract } = this.props;
+    const { product, testidQuantity, testidAdd, testidSubtract, updateSize } = this.props;
     const { quantity } = this.state;
     return (
       <div className="product-button">
@@ -32,6 +32,7 @@ class HandleQuantityButton extends Component {
           product={product}
           testid={testidAdd}
           updateQuantity={this.updateQuantity}
+          updateSize={updateSize}
         >
           +
         </AddCartButton>
@@ -40,6 +41,7 @@ class HandleQuantityButton extends Component {
           product={product}
           updateQuantity={this.updateQuantity}
           testid={testidSubtract}
+          updateSize={updateSize}
         >
           -
         </RemoveCartItem>

@@ -7,7 +7,7 @@ class RemoveCartItem extends Component {
   }
 
   removeFromCart() {
-    const { product, updateQuantity } = this.props;
+    const { product, updateQuantity, updateSize } = this.props;
     const cartItems = JSON.parse(localStorage.getItem('cartItems'));
     const itemWithUniqueQuantity = cartItems.find((
       item,
@@ -16,11 +16,13 @@ class RemoveCartItem extends Component {
       const indexOfUnique = cartItems.indexOf(itemWithUniqueQuantity);
       cartItems.splice(indexOfUnique, 1);
       localStorage.setItem('cartItems', JSON.stringify(cartItems));
+      updateSize();
       return updateQuantity && updateQuantity();
     }
     const indexToSubtract = cartItems.indexOf(cartItems.find((item) => item.id === product.id));
     if (indexToSubtract !== -1)cartItems[indexToSubtract].quantity -= 1;
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    updateSize();
     return updateQuantity && updateQuantity();
   }
 
