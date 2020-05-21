@@ -3,11 +3,12 @@ import CartCard from './CartCard';
 
 class CartList extends Component {
   render() {
+    const { updateSize } = this.props;
     const cartItems = JSON.parse(localStorage.getItem('cartItems'));
     return (
       <div>
         {cartItems.map((item) => (
-          <CartCard key={item.id} product={item} />
+          <CartCard updateSize={updateSize} key={item.id} product={item} />
         ))}
       </div>
     );

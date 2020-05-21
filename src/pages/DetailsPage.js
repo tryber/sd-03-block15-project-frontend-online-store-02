@@ -6,7 +6,6 @@ import CartButton from '../components/CartButton';
 
 class DetailsPage extends Component {
   render() {
-    console.log(this.props);
     const { location: { state: product }, updateSize, cartSize } = this.props;
     const { title, thumbnail, price } = product;
     return (

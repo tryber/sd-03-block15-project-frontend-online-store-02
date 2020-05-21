@@ -4,7 +4,7 @@ import HandleQuantityButton from './HandleQuantityButton';
 
 class CartCard extends Component {
   render() {
-    const { product } = this.props;
+    const { product, updateSize } = this.props;
     const { title, thumbnail } = product;
     return (
       <div>
@@ -16,6 +16,7 @@ class CartCard extends Component {
             testidQuantity="shopping-cart-product-quantity"
             testidAdd="product-increase-quantity"
             testidSubtract="product-decrease-quantity"
+            updateSize={updateSize}
           />
         </div>
       </div>
