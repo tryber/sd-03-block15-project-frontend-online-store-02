@@ -16,6 +16,7 @@ class App extends React.Component {
       ),
     };
     this.updateSize = this.updateSize.bind(this);
+    this.rendeRouter = this.rendeRouter.bind(this);
   }
 
   updateSize() {
@@ -26,17 +27,37 @@ class App extends React.Component {
     });
   }
 
-  render() {
+  rendeRouter() {
     const { cartSize } = this.state;
     return (
       <Router>
         <Switch>
-          <Route path="/product/:id" render={(props) => <DetailsPage {...props} cartSize={cartSize} updateSize={this.updateSize} />} />
-          <Route path="/cart" render={(props) => <CartPage {...props} cartSize={cartSize} updateSize={this.updateSize} />} />
-          <Route exact path="/" render={(props) => <MainPage {...props} cartSize={cartSize} updateSize={this.updateSize} />} />
+          <Route
+            path="/product/:id"
+            render={
+            (props) => <DetailsPage {...props} cartSize={cartSize} updateSize={this.updateSize} />
+            }
+          />
+          <Route
+            path="/cart"
+            render={
+            (props) => <CartPage {...props} cartSize={cartSize} updateSize={this.updateSize} />
+            }
+          />
+          <Route
+            exact
+            path="/"
+            render={(props) => (
+              <MainPage {...props} cartSize={cartSize} updateSize={this.updateSize} />
+            )}
+          />
         </Switch>
       </Router>
     );
+  }
+
+  render() {
+    return this.rendeRouter();
   }
 }
 

@@ -16,10 +16,9 @@ class ProductCard extends React.Component {
             <div className="card-body">
               <h6 className="card-title">R$ {price} - {title}</h6>
               <Link
-                to={{ pathname: `/product/${id}`, state: {...product} }}
+                to={{ pathname: `/product/${id}`, state: { ...product } }}
                 data-testid="product-detail-link" className="card-text"
-              >
-                 Detalhes <Shipping freeShipping={freeShipping} />
+              > Detalhes <Shipping freeShipping={freeShipping} />
               </Link>
             </div>
             <div className="card-footer">
