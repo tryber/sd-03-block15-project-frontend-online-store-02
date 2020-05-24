@@ -23,8 +23,8 @@ class Checkout extends React.Component {
         </div>
         <CheckoutForm />
         <div>
-          <Link to='/'>
-            <button type='button'>Home</button>
+          <Link to="/">
+            <button type="button">Home</button>
           </Link>
         </div>
       </div>

@@ -56,7 +56,7 @@ class CheckoutForm extends React.Component {
           {this.createInput('Telefone:', 'text', 'phone', 'checkout-phone', phone)}
           {this.createInput('CEP:', 'text', 'cep', 'checkout-cep', cep)}
           {this.createInput('Endereço:', 'text', 'address', 'checkout-address', address)}
-          <button type='button' onClick={this.clearState}>Comprar</button>
+          <button type="button" onClick={this.clearState}>Comprar</button>
         </form>
       </div>
     );
