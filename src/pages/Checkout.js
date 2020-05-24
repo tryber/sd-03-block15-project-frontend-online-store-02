@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 import CheckoutForm from '../components/CheckoutForm';
 
 class Checkout extends React.Component {
   render() {
-    const cartItems = JSON.parse(localStorage.getItem("cartItems"));
+    const cartItems = JSON.parse(localStorage.getItem('cartItems'));
     let totalPrice = 0;
     return (
       <div>
