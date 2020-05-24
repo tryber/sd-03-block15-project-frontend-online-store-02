@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CartCard from './CartCard';
+import { Link } from 'react-router-dom';
 
 class CartList extends Component {
   render() {
@@ -9,6 +10,7 @@ class CartList extends Component {
         {cartItems.map((item) => (
           <CartCard key={item.id} product={item} />
         ))}
+        <button data-testid="checkout-products"><Link to='/checkout'>Finalizar compra</Link></button>
       </div>
     );
   }
