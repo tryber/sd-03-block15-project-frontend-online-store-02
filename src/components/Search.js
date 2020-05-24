@@ -3,13 +3,7 @@ import CartButton from './CartButton';
 
 class Search extends React.Component {
   render() {
-    const {
-      searchInput,
-      categoryId,
-      onHandleChange,
-      updateResults,
-      cartSize,
-    } = this.props;
+    const { searchInput, categoryId, onHandleChange, updateResults, cartSize } = this.props;
     return (
       <div>
         <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
