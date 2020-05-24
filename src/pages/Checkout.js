@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import CheckoutForm from '../components/CheckoutForm';
 
-function checkoutCard ({ thumbnail, title, price, quantity }, index, quant) {
+function checkoutCard({ thumbnail, title, price, quantity }, index, quant) {
   const rigthQuantity = quantity || quant;
   return (
     <div key={index}>
