@@ -9,7 +9,7 @@ class CartList extends Component {
     return (
       <div>
         {cartItems.map((item, index) => (
-          <CartCard updateSize={updateSize} key={index} product={item} />
+          <CartCard updateSize={updateSize} key={`${item.id}${index}`} product={item} />
         ))}
         <div>
           <Link data-testid="checkout-products" to="/checkout">
