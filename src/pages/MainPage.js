@@ -28,9 +28,7 @@ class MainPage extends React.Component {
   }
 
   onHandleRadio(categoryId, searchInput) {
-    this.setState({ categoryId }, () =>
-      this.updateResults(categoryId, searchInput),
-    );
+    this.setState({ categoryId }, () => this.updateResults(categoryId, searchInput));
   }
 
   onHandleChange(event) {
@@ -50,6 +48,8 @@ class MainPage extends React.Component {
 
   render() {
     const { categoryId, results, categories, searchInput, isLoading, notFound } = this.state;
+    const { updateSize, cartSize } = this.props;
+    const mainProps = { results, isLoading, notFound, updateSize };
     return (
       <div>
         <div className="category-list">
@@ -61,9 +61,10 @@ class MainPage extends React.Component {
           searchInput={searchInput}
           categoryId={categoryId}
           isLoading={isLoading}
+          cartSize={cartSize}
         />
         <main role="main" className="container">
-          <MainContent results={results} isLoading={isLoading} notFound={notFound} />
+          <MainContent {...mainProps} updateSize={updateSize} />
         </main>
       </div>
     );
