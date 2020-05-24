@@ -5,7 +5,7 @@ import HandleQuantityButton from './HandleQuantityButton';
 class CartCard extends Component {
   render() {
     const { product, updateSize } = this.props;
-    const { title, thumbnail } = product;
+    const { title, thumbnail } = product.product ? product.product : product;
     return (
       <div>
         <h3 data-testid="shopping-cart-product-name">{title}</h3>
