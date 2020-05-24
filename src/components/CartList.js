@@ -8,8 +8,8 @@ class CartList extends Component {
     const cartItems = JSON.parse(localStorage.getItem('cartItems'));
     return (
       <div>
-        {cartItems.map((item, index) => (
-          <CartCard updateSize={updateSize} key={`${item.id}${index}`} product={item} />
+        {cartItems.map((item) => (
+          <CartCard updateSize={updateSize} key={item.id} product={item} />
         ))}
         <div>
           <Link data-testid="checkout-products" to="/checkout">
