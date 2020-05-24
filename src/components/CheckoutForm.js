@@ -1,15 +1,15 @@
-import React from "react";
+import React from 'react';
 
 class CheckoutForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
-      email: "",
-      cpf: "",
-      phone: "",
-      cep: "",
-      address: "",
+      name: '',
+      email: '',
+      cpf: '',
+      phone: '',
+      cep: '',
+      address: '',
     };
     this.updateState = this.updateState.bind(this);
     this.clearState = this.clearState.bind(this);
@@ -38,12 +38,12 @@ class CheckoutForm extends React.Component {
   clearState() {
     alert('Compra finalizada!');
     this.setState({
-      name: "",
-      email: "",
-      cpf: "",
-      phone: "",
-      cep: "",
-      address: "",
+      name: '',
+      email: '',
+      cpf: '',
+      phone: '',
+      cep: '',
+      address: '',
     });
   }
 
@@ -51,31 +51,15 @@ class CheckoutForm extends React.Component {
     const { name, email, cpf, phone, cep, address } = this.state;
     return (
       <div>
-        {this.creatInput(
-          "Nome completo:",
-          "text",
-          "name",
-          "checkout-fullname",
-          name
-        )}
-        {this.creatInput("Email:", "email", "email", "checkout-email", email)}
-        {this.creatInput("CPF:", "text", "cpf", "checkout-cpf", cpf)}
-        {this.creatInput(
-          "Telefone:",
-          "text",
-          "phone",
-          "checkout-phone",
-          phone
-        )}
-        {this.creatInput("CEP:", "text", "cep", "checkout-cep", cep)}
-        {this.creatInput(
-          "Endereço:",
-          "text",
-          "address",
-          "checkout-address",
-          address
-        )}
-        <button onClick={this.clearState}>Comprar</button>
+        {this.creatInput('Nome completo:', 'text', 'name', 'checkout-fullname', name)};
+        {this.creatInput('Email:', 'email', 'email', 'checkout-email', email)};
+        {this.creatInput('CPF:', 'text', 'cpf', 'checkout-cpf', cpf)};
+        {this.creatInput('Telefone:', 'text', 'phone', 'checkout-phone', phone)};
+        {this.creatInput('CEP:', 'text', 'cep', 'checkout-cep', cep)};
+        {this.creatInput('Endereço:', 'text', 'address', 'checkout-address', address)};
+        <div>
+          <button onClick={this.clearState}>Comprar</button>
+        </div>
       </div>
     );
   }

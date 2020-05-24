@@ -15,12 +15,13 @@ class ProductCard extends React.Component {
             <img src={thumbnail} alt={title} className="rounded mx-auto d-block" />
             <div className="card-body">
               <h6 className="card-title">R$ {price} - {title}</h6>
+              <Shipping freeShipping={freeShipping} />
               <Link
                 to={{ pathname: `/product/${id}`, state: { product } }}
                 data-testid="product-detail-link"
                 className="card-text"
               >
-              Detalhes <Shipping freeShipping={freeShipping} />
+              Detalhes
               </Link>
             </div>
             <div className="card-footer">
