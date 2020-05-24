@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import CheckoutForm from '../components/CheckoutForm';
 
 class Checkout extends React.Component {
@@ -21,6 +22,11 @@ class Checkout extends React.Component {
           <p>{`TOTAL: R$ ${totalPrice}`}</p>
         </div>
         <CheckoutForm />
+        <div>
+          <Link to='/'>
+            <button type='button'>Home</button>
+          </Link>
+        </div>
       </div>
     );
   }

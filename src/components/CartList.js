@@ -10,9 +10,11 @@ class CartList extends Component {
         {cartItems.map((item) => (
           <CartCard key={item.id} product={item} />
         ))}
-        <button data-testid="checkout-products">
-          <Link to="/checkout">Finalizar compra</Link>
-        </button>
+        <div>
+          <Link data-testid="checkout-products" to="/checkout">
+            <button>Finalizar compra</button>
+          </Link>
+        </div>
       </div>
     );
   }

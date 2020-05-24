@@ -30,7 +30,7 @@ class CheckoutForm extends React.Component {
     this.setState({ [chave]: event.target.value });
   }
 
-  creatInput(label, type, id, testid, value) {
+  createInput(label, type, id, testid, value) {
     return (
       <div>
         <label htmlFor={id}>{label}</label>
@@ -49,15 +49,15 @@ class CheckoutForm extends React.Component {
     const { name, email, cpf, phone, cep, address } = this.state;
     return (
       <div>
-        {this.creatInput('Nome completo:', 'text', 'name', 'checkout-fullname', name)}
-        {this.creatInput('Email:', 'email', 'email', 'checkout-email', email)}
-        {this.creatInput('CPF:', 'text', 'cpf', 'checkout-cpf', cpf)}
-        {this.creatInput('Telefone:', 'text', 'phone', 'checkout-phone', phone)}
-        {this.creatInput('CEP:', 'text', 'cep', 'checkout-cep', cep)}
-        {this.creatInput('Endereço:', 'text', 'address', 'checkout-address', address)}
-        <div>
-          <button onClick={this.clearState}>Comprar</button>
-        </div>
+        <form>
+          {this.createInput('Nome completo:', 'text', 'name', 'checkout-fullname', name)}
+          {this.createInput('Email:', 'email', 'email', 'checkout-email', email)}
+          {this.createInput('CPF:', 'text', 'cpf', 'checkout-cpf', cpf)}
+          {this.createInput('Telefone:', 'text', 'phone', 'checkout-phone', phone)}
+          {this.createInput('CEP:', 'text', 'cep', 'checkout-cep', cep)}
+          {this.createInput('Endereço:', 'text', 'address', 'checkout-address', address)}
+          <button type='button' onClick={this.clearState}>Comprar</button>
+        </form>
       </div>
     );
   }
