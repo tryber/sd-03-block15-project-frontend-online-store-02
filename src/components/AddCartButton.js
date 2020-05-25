@@ -13,6 +13,7 @@ class AddCartButton extends Component {
     const indexOfItemInCart = cartItems && cartItems.indexOf(itemRepetido);
     switch (true) {
       case (!!itemRepetido):
+        if (itemRepetido.quantity >= product.available_quantity) return null;
         cartItems[indexOfItemInCart].quantity += 1;
         localStorage.setItem('cartItems', JSON.stringify(cartItems));
         updateSize();
