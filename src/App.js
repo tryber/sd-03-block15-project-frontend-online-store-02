@@ -5,6 +5,7 @@ import './App.css';
 import MainPage from './pages/MainPage';
 import CartPage from './pages/CartPage';
 import DetailsPage from './pages/DetailsPage';
+import Checkout from './pages/Checkout';
 
 class App extends React.Component {
   constructor(props) {
@@ -44,6 +45,7 @@ class App extends React.Component {
             (props) => <CartPage {...props} cartSize={cartSize} updateSize={this.updateSize} />
             }
           />
+          <Route path="/checkout" component={Checkout} />
           <Route
             exact
             path="/"

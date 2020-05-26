@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import AddCartButton from './AddCartButton';
 import Shipping from './Shipping';
-// { title, thumbnail, price }
+
 class ProductCard extends React.Component {
   render() {
     const { product, updateSize } = this.props;
@@ -15,10 +15,13 @@ class ProductCard extends React.Component {
             <img src={thumbnail} alt={title} className="rounded mx-auto d-block" />
             <div className="card-body">
               <h6 className="card-title">R$ {price} - {title}</h6>
+              <Shipping freeShipping={freeShipping} />
               <Link
                 to={{ pathname: `/product/${id}`, state: product }}
-                data-testid="product-detail-link" className="card-text"
-              > Detalhes <Shipping freeShipping={freeShipping} />
+                data-testid="product-detail-link"
+                className="card-text"
+              >
+                Detalhes
               </Link>
             </div>
             <div className="card-footer">
